@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FC938F3A-36F7-4B2F-AB60-CA5B0229D981}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SpiritMod</RootNamespace>
+    <AssemblyName>SpiritMod</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Xna.Framework" />
+    <Reference Include="Microsoft.Xna.Framework.Game" />
+    <Reference Include="Microsoft.Xna.Framework.Graphics" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Terraria2">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Terraria\Terraria2.exe</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Items\Bismite\BismiteCrystal.cs" />
+    <Compile Include="Items\Bismite\BismiteSword.cs" />
+    <Compile Include="Items\Bismite\BismiteSwordProjectile.cs" />
+    <Compile Include="Items\Bismite\BismiteBow.cs" />
+    <Compile Include="Items\Dev\DerpysChest.cs" />
+    <Compile Include="Items\Dev\DerpysLegs.cs" />
+    <Compile Include="Items\Dev\DerpysSunglasses.cs" />
+    <Compile Include="Items\Dev\EndersDevWings.cs" />
+    <Compile Include="Items\Dev\ZocklukasRing.cs" />
+    <Compile Include="Items\Dev\ZocklukasWings.cs" />
+    <Compile Include="Items\Dusk\DuskHood.cs" />
+    <Compile Include="Items\Dusk\DuskLeggings.cs" />
+    <Compile Include="Items\Dusk\DuskPlate.cs" />
+    <Compile Include="Items\Dusk\DusksEnd.cs" />
+    <Compile Include="Items\Dusk\DuskShot.cs" />
+    <Compile Include="Items\Dusk\DusksMusket.cs" />
+    <Compile Include="Items\ElementalBows\BloomBuster.cs" />
+    <Compile Include="Items\ElementalBows\CelestialStarbow.cs" />
+    <Compile Include="Items\ElementalBows\Longbowne.cs" />
+    <Compile Include="Items\ElementalBows\NightSky.cs" />
+    <Compile Include="Items\ElementalBows\Quasar.cs" />
+    <Compile Include="Items\ElementalBows\StarlightBow.cs" />
+    <Compile Include="Items\Ethereal\Buff\EssenceTrap.cs" />
+    <Compile Include="Items\Ethereal\EtherealArrow.cs" />
+    <Compile Include="Items\Ethereal\EtherealBow.cs" />
+    <Compile Include="Items\Ethereal\EtherealSpear.cs" />
+    <Compile Include="Items\Ethereal\EtherealSpearProjectile.cs" />
+    <Compile Include="Items\Ethereal\EtherealStaff.cs" />
+    <Compile Include="Items\Ethereal\EtherealStaffProjectile.cs" />
+    <Compile Include="Items\Ethereal\EtherealSword.cs" />
+    <Compile Include="Items\Geode\Geode.cs" />
+    <Compile Include="Items\Geode\GeodeHamaxe.cs" />
+    <Compile Include="Items\Geode\GeodePickaxe.cs" />
+    <Compile Include="Items\Geode\GeodeShuriken.cs" />
+    <Compile Include="Items\Geode\GeodeShurikenProjectile.cs" />
+    <Compile Include="Items\Geode\GeodeStaff.cs" />
+    <Compile Include="Items\Geode\GeodeStave.cs" />
+    <Compile Include="Items\Geode\GeodeStaveProjectile.cs" />
+    <Compile Include="Items\HardmodeOreHammers\AdamantiteWarhammer.cs" />
+    <Compile Include="Items\HardmodeOreHammers\CobaltWarhammer.cs" />
+    <Compile Include="Items\HardmodeOreHammers\MythrilWarhammer.cs" />
+    <Compile Include="Items\HardmodeOreHammers\OrichalcumWarhammer.cs" />
+    <Compile Include="Items\HardmodeOreHammers\PalladiumWarhammer.cs" />
+    <Compile Include="Items\HardmodeOreHammers\TitaniumWarhammer.cs" />
+    <Compile Include="Items\Ichor\IchorBow.cs" />
+    <Compile Include="Items\Ichor\IchorBreastplate.cs" />
+    <Compile Include="Items\Ichor\IchorHamaxe.cs" />
+    <Compile Include="Items\Ichor\IchorHelmet.cs" />
+    <Compile Include="Items\Ichor\IchorLeggings.cs" />
+    <Compile Include="Items\Ichor\IchorPickaxe.cs" />
+    <Compile Include="Items\Ichor\IchorSword.cs" />
+    <Compile Include="Items\Other\ElectrifiedV2.cs" />
+    <Compile Include="Items\Other\TeslaSpike.cs" />
+    <Compile Include="Items\Other\TeslaSpikeProjectile.cs" />
+    <Compile Include="Items\Paladin\PaladinChestguard.cs" />
+    <Compile Include="Items\Paladin\PaladinGreaves.cs" />
+    <Compile Include="Items\Paladin\PaladinHelm.cs" />
+    <Compile Include="Items\Paladin\PaladinsHammer.cs" />
+    <Compile Include="Items\Rune\RunicGreaves.cs" />
+    <Compile Include="Items\Rune\RunicHood.cs" />
+    <Compile Include="Items\Rune\RunicPlate.cs" />
+    <Compile Include="Items\Shell\ShellHammer.cs" />
+    <Compile Include="Items\Shuriken\Accessoire\ShurikenLauncher.cs" />
+    <Compile Include="Items\Shuriken\Accessoire\SwiftRune.cs" />
+    <Compile Include="Items\Shuriken\CopperShuriken.cs" />
+    <Compile Include="Items\Shuriken\CopperShurikenProjectile.cs" />
+    <Compile Include="Items\Shuriken\GoldShuriken.cs" />
+    <Compile Include="Items\Shuriken\GoldShurikenProjectile.cs" />
+    <Compile Include="Items\Shuriken\IronShuriken.cs" />
+    <Compile Include="Items\Shuriken\IronShurikenProjectile.cs" />
+    <Compile Include="Items\Shuriken\LeadShuriken.cs" />
+    <Compile Include="Items\Shuriken\LeadShurikenProjectile.cs" />
+    <Compile Include="Items\Shuriken\PlatinumShuriken.cs" />
+    <Compile Include="Items\Shuriken\PlatinumShurikenProjectile.cs" />
+    <Compile Include="Items\Shuriken\SilverShuriken.cs" />
+    <Compile Include="Items\Shuriken\SilverShurikenProjectile.cs" />
+    <Compile Include="Items\Shuriken\TinShuriken.cs" />
+    <Compile Include="Items\Shuriken\TinShurikenProjectile.cs" />
+    <Compile Include="Items\Shuriken\TungstenShuriken.cs" />
+    <Compile Include="Items\Shuriken\TungstenShurikenProjectile.cs" />
+    <Compile Include="Items\Rune\Rune.cs" />
+    <Compile Include="Items\Spirit\SpiritChest.cs" />
+    <Compile Include="Items\Spirit\SpiritBar.cs" />
+    <Compile Include="Items\Spirit\SpiritBodyArmor.cs" />
+    <Compile Include="Items\Spirit\SpiritHeadgear.cs" />
+    <Compile Include="Items\Spirit\SpiritLeggings.cs" />
+    <Compile Include="Items\Spirit\SpiritTorchItem.cs" />
+    <Compile Include="Items\Spirit\SpiritWallItem.cs" />
+    <Compile Include="Items\Spirit\SpiritWoodItem.cs" />
+    <Compile Include="Items\Spirit\SpiritWorkbench.cs" />
+    <Compile Include="Items\Spirit\Tiles\SpiritChest.cs" />
+    <Compile Include="Items\Spirit\Tiles\SpiritWorkbench.cs" />
+    <Compile Include="Items\Tools\IchorHamaxe.cs" />
+    <Compile Include="Items\Tools\IchorPickaxe.cs" />
+    <Compile Include="Items\TrapperClass\IronCageLauncher.cs" />
+    <Compile Include="Items\TrapperClass\IronCageLauncherProjectile.cs" />
+    <Compile Include="Items\TrapperClass\IronNetLauncher.cs" />
+    <Compile Include="Items\TrapperClass\IronNetLauncherProjectile.cs" />
+    <Compile Include="Items\Twilight\TwilightBlades.cs" />
+    <Compile Include="Items\Twilight\TwilightBladesProjectile.cs" />
+    <Compile Include="Items\Weapons\Knifes\CrystalKnife.cs" />
+    <Compile Include="Items\Weapons\Knifes\CursedKnife.cs" />
+    <Compile Include="Items\Weapons\Knifes\IchorKnife.cs" />
+    <Compile Include="Items\Weapons\Knifes\SpectreKnife.cs" />
+    <Compile Include="Items\Weapons\Knifes\ThornbloomKnife.cs" />
+    <Compile Include="MyPlayer.cs" />
+    <Compile Include="NPCs\LoneTrapper.cs" />
+    <Compile Include="NPCs\ModGlobalNPC.cs" />
+    <Compile Include="NPCs\Rogue.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Ore\SpiritOre.cs" />
+    <Compile Include="Ore\SpiritOreTile.cs" />
+    <Compile Include="Projectiles\AvengersDaggerProjectile.cs" />
+    <Compile Include="Projectiles\CrystalKnifeProjectile.cs" />
+    <Compile Include="Projectiles\CursedKnifeProjectile.cs" />
+    <Compile Include="Projectiles\IchorKnifeProjectile.cs" />
+    <Compile Include="Projectiles\MourningDaggerProjectile.cs" />
+    <Compile Include="Projectiles\SpectreKnifeProjectile.cs" />
+    <Compile Include="Projectiles\Swords\IchorSword.cs" />
+    <Compile Include="Projectiles\ThornbloomKnifeProjectile.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpiritMod.cs" />
+    <Compile Include="Tiles\SpiritTorch.cs" />
+    <Compile Include="Tiles\SpiritWood.cs" />
+    <Compile Include="Walls\SpiritWall.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="bin\Debug\SpiritMod.exe.config" />
+    <None Include="bin\Debug\SpiritMod.vshost.exe.config" />
+    <None Include="bin\Debug\SpiritMod.vshost.exe.manifest" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\Project3.csprojResolveAssemblyReference.cache" />
+    <None Include="obj\Debug\SpiritMod.csprojResolveAssemblyReference.cache" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\SpiritMod.vshost.exe" />
+    <Content Include="build.txt" />
+    <Content Include="description.txt" />
+    <Content Include="Items\Bismite\BismiteBow.png" />
+    <Content Include="Items\Bismite\BismiteCrystal.png" />
+    <Content Include="Items\Bismite\BismiteSword.png" />
+    <Content Include="Items\Bismite\BismiteSwordProjectile.png" />
+    <Content Include="Items\Dev\DerpysChest.png" />
+    <Content Include="Items\Dev\DerpysChest_Arms.png" />
+    <Content Include="Items\Dev\DerpysChest_Body.png" />
+    <Content Include="Items\Dev\DerpysChest_FemaleBody.png" />
+    <Content Include="Items\Dev\DerpysLegs.png" />
+    <Content Include="Items\Dev\DerpysLegs_Legs.png" />
+    <Content Include="Items\Dev\DerpysSunglasses.png" />
+    <Content Include="Items\Dev\DerpysSunglasses_Face.png" />
+    <Content Include="Items\Dev\DerpysSunglasses_Head.png" />
+    <Content Include="Items\Dev\EndersDevWings.png" />
+    <Content Include="Items\Dev\EndersDevWings_Wings.png" />
+    <Content Include="Items\Dev\ZocklukasRing.png" />
+    <Content Include="Items\Dev\ZocklukasWings.png" />
+    <Content Include="Items\Dev\ZocklukasWings_Wings.png" />
+    <Content Include="Items\Dusk\DuskHood.png" />
+    <Content Include="Items\Dusk\DuskHood_Head.png" />
+    <Content Include="Items\Dusk\DuskLeggings.png" />
+    <Content Include="Items\Dusk\DuskLeggings_Legs.png" />
+    <Content Include="Items\Dusk\DuskPlate.png" />
+    <Content Include="Items\Dusk\DuskPlate_Arms.png" />
+    <Content Include="Items\Dusk\DuskPlate_Body.png" />
+    <Content Include="Items\Dusk\DuskPlate_FemaleBody.png" />
+    <Content Include="Items\Dusk\DusksEnd.png" />
+    <Content Include="Items\Dusk\DuskShot.png" />
+    <Content Include="Items\Dusk\DusksMusket.png" />
+    <Content Include="Items\ElementalBows\BloomBuster.png" />
+    <Content Include="Items\ElementalBows\CelestialStarbow.png" />
+    <Content Include="Items\ElementalBows\Longbowne.png" />
+    <Content Include="Items\ElementalBows\NightSky.png" />
+    <Content Include="Items\ElementalBows\Quasar.png" />
+    <Content Include="Items\ElementalBows\StarlightBow.png" />
+    <Content Include="Items\Ethereal\Buff\EssenceTrap.png" />
+    <Content Include="Items\Ethereal\EtherealArrow.png" />
+    <Content Include="Items\Ethereal\EtherealBow.png" />
+    <Content Include="Items\Ethereal\EtherealSpear.png" />
+    <Content Include="Items\Ethereal\EtherealSpearProjectile.png" />
+    <Content Include="Items\Ethereal\EtherealStaff.png" />
+    <Content Include="Items\Ethereal\EtherealStaffProjectile.png" />
+    <Content Include="Items\Ethereal\EtherealSword.png" />
+    <Content Include="Items\Geode\Geode.png" />
+    <Content Include="Items\Geode\GeodeHamaxe.png" />
+    <Content Include="Items\Geode\GeodePickaxe.png" />
+    <Content Include="Items\Geode\GeodeShuriken.png" />
+    <Content Include="Items\Geode\GeodeShurikenProjectile.png" />
+    <Content Include="Items\Geode\GeodeStaff.png" />
+    <Content Include="Items\Geode\GeodeStave.png" />
+    <Content Include="Items\Geode\GeodeStaveProjectile.png" />
+    <Content Include="Items\HardmodeOreHammers\AdamantiteWarhammer.png" />
+    <Content Include="Items\HardmodeOreHammers\CobaltWarhammer.png" />
+    <Content Include="Items\HardmodeOreHammers\MythrilWarhammer.png" />
+    <Content Include="Items\HardmodeOreHammers\OrichalcumWarhammer.png" />
+    <Content Include="Items\HardmodeOreHammers\PalladiumWarhammer.png" />
+    <Content Include="Items\HardmodeOreHammers\TitaniumWarhammer.png" />
+    <Content Include="Items\Ichor\IchorBow.png" />
+    <Content Include="Items\Ichor\IchorBreastplate.png" />
+    <Content Include="Items\Ichor\IchorBreastplate_Arms.png" />
+    <Content Include="Items\Ichor\IchorBreastplate_Body.png" />
+    <Content Include="Items\Ichor\IchorBreastplate_FemaleBody.png" />
+    <Content Include="Items\Ichor\IchorHamaxe.png" />
+    <Content Include="Items\Ichor\IchorHelmet.png" />
+    <Content Include="Items\Ichor\IchorHelmet_Head.png" />
+    <Content Include="Items\Ichor\IchorLeggings.png" />
+    <Content Include="Items\Ichor\IchorLeggings_Legs.png" />
+    <Content Include="Items\Ichor\IchorPickaxe.png" />
+    <Content Include="Items\Ichor\IchorSword.png" />
+    <Content Include="Items\Other\ElectrifiedV2.png" />
+    <Content Include="Items\Other\TeslaSpike.png" />
+    <Content Include="Items\Other\TeslaSpikeProjectile.png" />
+    <Content Include="Items\Paladin\PaladinChestguard.png" />
+    <Content Include="Items\Paladin\PaladinChestguard_Arms.png" />
+    <Content Include="Items\Paladin\PaladinChestguard_Body.png" />
+    <Content Include="Items\Paladin\PaladinChestguard_FemaleBody.png" />
+    <Content Include="Items\Paladin\PaladinGreaves.png" />
+    <Content Include="Items\Paladin\PaladinGreaves_Legs.png" />
+    <Content Include="Items\Paladin\PaladinHelm.png" />
+    <Content Include="Items\Paladin\PaladinHelm_Head.png" />
+    <Content Include="Items\Rune\Rune.png" />
+    <Content Include="Items\Rune\RunicGreaves.png" />
+    <Content Include="Items\Rune\RunicGreaves_Legs.png" />
+    <Content Include="Items\Rune\RunicHood.png" />
+    <Content Include="Items\Rune\RunicHood_Head.png" />
+    <Content Include="Items\Rune\RunicPlate.png" />
+    <Content Include="Items\Rune\RunicPlate_Arms.png" />
+    <Content Include="Items\Rune\RunicPlate_Body.png" />
+    <Content Include="Items\Rune\RunicPlate_FemaleBody.png" />
+    <Content Include="Items\Shell\ShellHammer.png" />
+    <Content Include="Items\Shuriken\Accessoire\ShurikenLauncher.png" />
+    <Content Include="Items\Shuriken\Accessoire\SwiftRune.png" />
+    <Content Include="Items\Shuriken\CopperShuriken.png" />
+    <Content Include="Items\Shuriken\CopperShurikenProjectile.png" />
+    <Content Include="Items\Shuriken\GoldShuriken.png" />
+    <Content Include="Items\Shuriken\GoldShurikenProjectile.png" />
+    <Content Include="Items\Shuriken\IronShuriken.png" />
+    <Content Include="Items\Shuriken\IronShurikenProjectile.png" />
+    <Content Include="Items\Shuriken\LeadShuriken.png" />
+    <Content Include="Items\Shuriken\LeadShurikenProjectile.png" />
+    <Content Include="Items\Shuriken\PlatinumShuriken.png" />
+    <Content Include="Items\Shuriken\PlatinumShurikenProjectile.png" />
+    <Content Include="Items\Shuriken\SilverShuriken.png" />
+    <Content Include="Items\Shuriken\SilverShurikenProjectile.png" />
+    <Content Include="Items\Shuriken\Tile\KnifeShapener.png" />
+    <Content Include="Items\Shuriken\TinShuriken.png" />
+    <Content Include="Items\Shuriken\TinShurikenProjectile.png" />
+    <Content Include="Items\Shuriken\TungstenShuriken.png" />
+    <Content Include="Items\Shuriken\TungstenShurikenProjectile.png" />
+    <Content Include="Items\Spirit\SpiritBar.png" />
+    <Content Include="Items\Spirit\SpiritBodyArmor.png" />
+    <Content Include="Items\Spirit\SpiritBodyArmor_Arms.png" />
+    <Content Include="Items\Spirit\SpiritBodyArmor_Body.png" />
+    <Content Include="Items\Spirit\SpiritBodyArmor_FemaleBody.png" />
+    <Content Include="Items\Spirit\SpiritChest.png" />
+    <Content Include="Items\Spirit\SpiritHeadgear.png" />
+    <Content Include="Items\Spirit\SpiritHeadgear_Head.png" />
+    <Content Include="Items\Spirit\SpiritItems.png" />
+    <Content Include="Items\Spirit\SpiritLeggings.png" />
+    <Content Include="Items\Spirit\SpiritLeggings_Legs.png" />
+    <Content Include="Items\Spirit\SpiritTorchItem.png" />
+    <Content Include="Items\Spirit\SpiritWallItem.png" />
+    <Content Include="Items\Spirit\SpiritWoodItem.png" />
+    <Content Include="Items\Spirit\SpiritWorkbench.png" />
+    <Content Include="Items\Spirit\Tiles\SpiritChest.png" />
+    <Content Include="Items\Spirit\Tiles\SpiritWorkbench.png" />
+    <Content Include="Items\Tools\IchorHamaxe.png" />
+    <Content Include="Items\Tools\IchorPickaxe.png" />
+    <Content Include="Items\TrapperClass\IronCageLauncher.png" />
+    <Content Include="Items\TrapperClass\IronCageLauncherProjectile.png" />
+    <Content Include="Items\TrapperClass\IronNetLauncher.png" />
+    <Content Include="Items\TrapperClass\IronNetLauncherProjectile.png" />
+    <Content Include="Items\Twilight\TwilightBlades.png" />
+    <Content Include="Items\Twilight\TwilightBladesProjectile.png" />
+    <Content Include="Items\Weapons\Knifes\CrystalKnife.png" />
+    <Content Include="Items\Weapons\Knifes\CursedKnife.png" />
+    <Content Include="Items\Weapons\Knifes\IchorKnife.png" />
+    <Content Include="Items\Weapons\Knifes\SpectreKnife.png" />
+    <Content Include="Items\Weapons\Knifes\ThornbloomKnife.png" />
+    <Content Include="NPCs\LoneTrapper.png" />
+    <Content Include="NPCs\LoneTrapper_Head.png" />
+    <Content Include="NPCs\Rogue.png" />
+    <Content Include="NPCs\Rogue_Bad.png" />
+    <Content Include="NPCs\Rogue_Head.png" />
+    <Content Include="obj\Debug\Project3.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\SpiritMod.csproj.FileListAbsolute.txt" />
+    <Content Include="Ore\SpiritOre.png" />
+    <Content Include="Ore\SpiritOreTile.png" />
+    <Content Include="Projectiles\AvengersDaggerProjectile.png" />
+    <Content Include="Projectiles\CrystalKnifeProjectile.png" />
+    <Content Include="Projectiles\CursedKnifeProjectile.png" />
+    <Content Include="Projectiles\IchorKnifeProjectile.png" />
+    <Content Include="Projectiles\MourningDaggerProjectile.png" />
+    <Content Include="Projectiles\SpectreKnifeProjectile.png" />
+    <Content Include="Projectiles\Swords\IchorSword.png" />
+    <Content Include="Projectiles\ThornbloomKnifeProjectile.png" />
+    <Content Include="Tiles\SpiritTorch.png" />
+    <Content Include="Tiles\SpiritTorch_Flame.png" />
+    <Content Include="Tiles\SpiritWood.png" />
+    <Content Include="Walls\SpiritWall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+    <Folder Include="Buffs\" />
+    <Folder Include="Dusts\" />
+    <Folder Include="Mounts\" />
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
