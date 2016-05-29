@@ -15,5 +15,15 @@ namespace SpiritMod.Items.Putrid
             item.value = 100;
             item.rare = 4;
         }
+		        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(1508, 1);
+            recipe.AddIngredient(521, 1);
+            recipe.AddIngredient(522, 1);
+            recipe.AddTile(.MythrilAnvil);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
+        }
     }
 } 
