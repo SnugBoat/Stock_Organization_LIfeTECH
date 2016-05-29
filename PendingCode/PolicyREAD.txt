@@ -1,0 +1,1 @@
+Everyone MUST put their code in this folder before sending it into the mod for testing and grammar checking. This is just for saftey.
