@@ -6,11 +6,11 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.NPCs
 {
-	public class GlobalNPC : GlobalNPC
+	public class SpiritGlobalNPC : GlobalNPC
 	{
 		public override void ResetEffects(NPC npc)
 		{
-			ExampleNPCInfo info = (GlobalNPCInfo)npc.GetModInfo(mod, "GlobalNPCInfo");
+			GlobalNPCInfo info = (GlobalNPCInfo)npc.GetModInfo(mod, "GlobalNPCInfo");
 			info.eFlames = false;
 		}
 		
