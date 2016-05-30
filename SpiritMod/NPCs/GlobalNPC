@@ -1,0 +1,22 @@
+using System;
+using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
+
+namespace SpiritMod.NPCs
+{
+	public class GlobalNPC : GlobalNPC
+	{
+		public override void ResetEffects(NPC npc)
+		{
+			ExampleNPCInfo info = (GlobalNPCInfo)npc.GetModInfo(mod, "GlobalNPCInfo");
+			info.eFlames = false;
+		}
+		
+		public override void NPCLoot(NPC npc)
+		{
+		  if (npc.type == NPCID.Plantera)
+			{
+				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ThornBloomKnife"), Main.rand.Next(40, 60));
+			}
