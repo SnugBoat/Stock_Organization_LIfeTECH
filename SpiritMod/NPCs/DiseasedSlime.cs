@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.NPCs
 {
-    public class JeweledSlime : ModNPC
+    public class DiseasedSlime : ModNPC
     {
         public override void SetDefaults()
         {
