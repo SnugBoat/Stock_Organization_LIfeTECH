@@ -34,6 +34,15 @@ namespace SpiritMod.Projectiles
             base.OnHitNPC(target, damage, knockback, crit);
         }
 
+        public override void Kill(int timeLeft)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 6);
+            }
+            Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y);
+        }
+
         //public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
         //{
         //    Vector2 drawOrigin = new Vector2(Main.projectileTexture[projectile.type].Width * 0.5f, projectile.height * 0.5f);
