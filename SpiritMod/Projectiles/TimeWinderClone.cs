@@ -48,10 +48,15 @@ namespace SpiritMod.Projectiles
             Dust.NewDust(projectile.position, projectile.width, projectile.height, 7, 0, 0, 0, default(Color), 1f);
         }
 
-        public void OnHitNPC(Player player, NPC target, int damage, float knockBack, bool crit)
+        public void OnHitNPC(Player p, NPC target, int damage, float knockBack, bool crit)
         {
-            int DustID = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y + 2f), projectile.width + 4, projectile.height + 4, 36, projectile.velocity.X * 0.2f, projectile.velocity.Y * 0.2f, 120, default(Color), 0.75f);
-            Main.dust[DustID].noGravity = true;
+            if (Main.rand.Next(2) == 1)
+            {
+                Vector2 velocity = new Vector2(p.direction, 0) * 4f;
+                int proj = Projectile.NewProjectile(p.Center.X, p.position.Y + p.height + -35, velocity.X, velocity.Y, mod.ProjectileType("TimeWinderClone"), damage = 60, projectile.owner, 0, 0f);
+                Main.projectile[proj].friendly = true;
+                Main.projectile[proj].hostile = false;
+            }
         }
 
         public override bool OnTileCollide(Vector2 oldVelocity)
