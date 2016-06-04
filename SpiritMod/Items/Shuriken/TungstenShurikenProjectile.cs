@@ -13,8 +13,8 @@ namespace SpiritMod.Items.Shuriken
         {
             projectile.CloneDefaults(ProjectileID.Shuriken);
             projectile.name = "Tungsten Shuriken";         
-            projectile.width = 30;
-            projectile.height = 30;
+            projectile.width = 20;
+            projectile.height = 20;
 
 
         }
@@ -25,6 +25,15 @@ namespace SpiritMod.Items.Shuriken
             {
                 target.AddBuff(BuffID.BrokenArmor, 200, true);
             }            
+        }
+
+        public override void Kill(int timeLeft)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 83);
+            }
+            Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y);
         }
 
         //public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)

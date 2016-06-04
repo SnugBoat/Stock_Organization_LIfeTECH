@@ -13,8 +13,8 @@ namespace SpiritMod.Items.Shuriken
         {
             projectile.CloneDefaults(ProjectileID.Shuriken);
             projectile.name = "Silver Shuriken";         
-            projectile.width = 34;
-            projectile.height = 34;
+            projectile.width = 20;
+            projectile.height = 20;
 
 
         }
@@ -27,6 +27,14 @@ namespace SpiritMod.Items.Shuriken
             }            
         }
 
+        public override void Kill(int timeLeft)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 11);
+            }
+            Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y);
+        }
         //public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
         //{
         //    Vector2 drawOrigin = new Vector2(Main.projectileTexture[projectile.type].Width * 0.5f, projectile.height * 0.5f);
