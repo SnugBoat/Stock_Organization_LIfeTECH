@@ -13,8 +13,8 @@ namespace SpiritMod.Items.Twilight
         {
             projectile.CloneDefaults(ProjectileID.Shuriken);
             projectile.name = "TwilightBladesProjectile";         
-            projectile.width = 32;
-            projectile.height = 32;
+            projectile.width = 20;
+            projectile.height = 20;
 
 
         }
@@ -27,6 +27,21 @@ namespace SpiritMod.Items.Twilight
             }
         }
 
+        public override void Kill(int timeLeft)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 62);
+            }
+            Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y);
+        }
+
+        public override void AI()
+        {
+            Lighting.AddLight(projectile.position, 0.4f, 0.0f, 0.4f);
+        }
+
+        
         //public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
         //{
         //    Vector2 drawOrigin = new Vector2(Main.projectileTexture[projectile.type].Width * 0.5f, projectile.height * 0.5f);
