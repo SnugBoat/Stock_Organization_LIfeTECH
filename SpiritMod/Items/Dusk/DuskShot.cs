@@ -14,12 +14,11 @@ namespace SpiritMod.Items.Dusk
 			projectile.width = 18;
 			projectile.height = 26;
 			projectile.aiStyle = 1;
-			projectile.friendly = true;
+            projectile.friendly = true;
 			projectile.ranged = true;
 			projectile.penetrate = 5;
 			projectile.timeLeft = 1000;
 			projectile.alpha = 255;
-			projectile.light = 0.5f;
 			projectile.extraUpdates = 1;
 			ProjectileID.Sets.TrailCacheLength[projectile.type] = 5;
 			ProjectileID.Sets.TrailingMode[projectile.type] = 0;
@@ -48,7 +47,21 @@ namespace SpiritMod.Items.Dusk
 			return false;
 		}
 
-		public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override void Kill(int timeLeft)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 62);
+            }
+            Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y);
+        }
+
+        public override void AI()
+        {
+            Lighting.AddLight(projectile.position, 0.4f, 0.0f, 0.4f);
+        }
+
+        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
 		{
 			Vector2 drawOrigin = new Vector2(Main.projectileTexture[projectile.type].Width * 0.5f, projectile.height * 0.5f);
 			for (int k = 0; k < projectile.oldPos.Length; k++)
