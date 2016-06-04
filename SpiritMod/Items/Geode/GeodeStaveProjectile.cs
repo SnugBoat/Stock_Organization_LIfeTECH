@@ -32,14 +32,14 @@ namespace SpiritMod.Items.Geode
 			}
 		}
 
-		public override void Kill(int timeLeft)
-		{
-			for (int k = 0; k < 5; k++)
-			{
-				Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, mod.DustType("SolarFlare"), projectile.oldVelocity.X * 0.5f, projectile.oldVelocity.Y * 0.5f);
-			}
-			Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 25);
-		}		
+        public override void Kill(int timeLeft)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 0);
+            }
+            Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y);
+        }
 
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
