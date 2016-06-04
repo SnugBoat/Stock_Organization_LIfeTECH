@@ -50,7 +50,7 @@ namespace SpiritMod.Projectiles
 
         public void OnHitNPC(Player p, NPC target, int damage, float knockBack, bool crit)
         {
-            if (Main.rand.Next(2) == 1)
+            if (Main.rand.Next(4) == 1)
             {
                 Vector2 velocity = new Vector2(p.direction, 0) * 4f;
                 int proj = Projectile.NewProjectile(p.Center.X, p.position.Y + p.height + -35, velocity.X, velocity.Y, mod.ProjectileType("TimeWinderClone"), damage = 60, projectile.owner, 0, 0f);
