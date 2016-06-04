@@ -18,7 +18,12 @@ namespace SpiritMod.Items.Ethereal.Buff
         public override void Update(NPC npc, ref int buffIndex)
         {
             npc.lifeRegen -= 10;
-            npc.defense -= 4;      
+            npc.defense -= 4;
+
+            if (Main.rand.Next(3) == 0)
+            {
+                int dust = Dust.NewDust(npc.position, npc.width, npc.height, 67);                
+            }
         }
     }
 }
