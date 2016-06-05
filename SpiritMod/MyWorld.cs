@@ -63,6 +63,12 @@ public static bool spiritBiome = false;
 							WorldGen.KillTile(A, B);
 							WorldGen.PlaceTile(A, B, mod.TileType("SpiritDirt"));
 						}
+                        else if (Main.tile[A,B].type == TileID.CorruptGrass)
+						{ 
+							WorldGen.KillTile(A, B);
+							WorldGen.PlaceTile(A, B, mod.TileType("SpiritDirt"));
+						}
+                        
 					}
 				}
 			} 
