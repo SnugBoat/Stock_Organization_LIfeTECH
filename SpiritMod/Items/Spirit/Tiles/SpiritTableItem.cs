@@ -3,11 +3,11 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Spirit
 {
-	public class SpiritWorkbench : ModItem
+	public class SpiritTableItem : ModItem
 	{
 		public override void SetDefaults()
 		{
-			item.name = "Spirit Workbench";
+			item.name = "Spirit Table";
             item.width = 44;
 			item.height = 25;
 			item.maxStack = 99;
@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Spirit
 			item.useStyle = 1;
 			item.consumable = true;
 			item.value = 150;
-			item.createTile = mod.TileType("SpiritWorkbench");
+			item.createTile = mod.TileType("SpiritTable");
 		}
 
 		public override void AddRecipes()
