@@ -7,8 +7,8 @@
     <ProjectGuid>{FC938F3A-36F7-4B2F-AB60-CA5B0229D981}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SpiritMod</RootNamespace>
-    <AssemblyName>SpiritMod</AssemblyName>
+    <RootNamespace>MinersExtra</RootNamespace>
+    <AssemblyName>MinersExtra</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -41,15 +41,18 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="Terraria">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Terraria\Terraria.exe</HintPath>
+    </Reference>
     <Reference Include="Terraria2">
       <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Terraria\Terraria2.exe</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Items\Bismite\BismiteBow.cs" />
     <Compile Include="Items\Bismite\BismiteCrystal.cs" />
     <Compile Include="Items\Bismite\BismiteSword.cs" />
     <Compile Include="Items\Bismite\BismiteSwordProjectile.cs" />
-    <Compile Include="Items\Bismite\BismiteBow.cs" />
     <Compile Include="Items\Dev\DerpysChest.cs" />
     <Compile Include="Items\Dev\DerpysLegs.cs" />
     <Compile Include="Items\Dev\DerpysSunglasses.cs" />
@@ -104,6 +107,8 @@
     <Compile Include="Items\Paladin\PaladinGreaves.cs" />
     <Compile Include="Items\Paladin\PaladinHelm.cs" />
     <Compile Include="Items\Paladin\PaladinsHammer.cs" />
+    <Compile Include="Items\Putrid\PutridPiece.cs" />
+    <Compile Include="Items\Rune\Rune.cs" />
     <Compile Include="Items\Rune\RunicGreaves.cs" />
     <Compile Include="Items\Rune\RunicHood.cs" />
     <Compile Include="Items\Rune\RunicPlate.cs" />
@@ -122,24 +127,35 @@
     <Compile Include="Items\Shuriken\PlatinumShurikenProjectile.cs" />
     <Compile Include="Items\Shuriken\SilverShuriken.cs" />
     <Compile Include="Items\Shuriken\SilverShurikenProjectile.cs" />
+    <Compile Include="Items\Shuriken\SporeBall.cs" />
+    <Compile Include="Items\Shuriken\SporeBallProjectile.cs" />
     <Compile Include="Items\Shuriken\TinShuriken.cs" />
     <Compile Include="Items\Shuriken\TinShurikenProjectile.cs" />
     <Compile Include="Items\Shuriken\TungstenShuriken.cs" />
     <Compile Include="Items\Shuriken\TungstenShurikenProjectile.cs" />
-    <Compile Include="Items\Rune\Rune.cs" />
-    <Compile Include="Items\Spirit\SpiritChest.cs" />
     <Compile Include="Items\Spirit\SpiritBar.cs" />
+    <Compile Include="Items\Spirit\SpiritBedItem.cs" />
     <Compile Include="Items\Spirit\SpiritBodyArmor.cs" />
+    <Compile Include="Items\Spirit\SpiritChairItem.cs" />
+    <Compile Include="Items\Spirit\SpiritChest.cs" />
+    <Compile Include="Items\Spirit\SpiritDirtItem.cs" />
+    <Compile Include="Items\Spirit\SpiritDoorItem.cs" />
     <Compile Include="Items\Spirit\SpiritHeadgear.cs" />
     <Compile Include="Items\Spirit\SpiritLeggings.cs" />
+    <Compile Include="Items\Spirit\SpiritSandItem.cs" />
+    <Compile Include="Items\Spirit\SpiritStoneItem.cs" />
+    <Compile Include="Items\Spirit\SpiritTableItem.cs" />
     <Compile Include="Items\Spirit\SpiritTorchItem.cs" />
     <Compile Include="Items\Spirit\SpiritWallItem.cs" />
     <Compile Include="Items\Spirit\SpiritWoodItem.cs" />
     <Compile Include="Items\Spirit\SpiritWorkbench.cs" />
+    <Compile Include="Items\Spirit\Tiles\SpiritBed.cs" />
+    <Compile Include="Items\Spirit\Tiles\SpiritChair.cs" />
     <Compile Include="Items\Spirit\Tiles\SpiritChest.cs" />
+    <Compile Include="Items\Spirit\Tiles\SpiritDoorClosed.cs" />
+    <Compile Include="Items\Spirit\Tiles\SpiritDoorOpen.cs" />
+    <Compile Include="Items\Spirit\Tiles\SpiritTable.cs" />
     <Compile Include="Items\Spirit\Tiles\SpiritWorkbench.cs" />
-    <Compile Include="Items\Tools\IchorHamaxe.cs" />
-    <Compile Include="Items\Tools\IchorPickaxe.cs" />
     <Compile Include="Items\TrapperClass\IronCageLauncher.cs" />
     <Compile Include="Items\TrapperClass\IronCageLauncherProjectile.cs" />
     <Compile Include="Items\TrapperClass\IronNetLauncher.cs" />
@@ -151,10 +167,20 @@
     <Compile Include="Items\Weapons\Knifes\IchorKnife.cs" />
     <Compile Include="Items\Weapons\Knifes\SpectreKnife.cs" />
     <Compile Include="Items\Weapons\Knifes\ThornbloomKnife.cs" />
+    <Compile Include="Items\Weapons\TimeWinder.cs" />
+    <Compile Include="Items\Weapons\Tomes\Hyperpulse.cs" />
+    <Compile Include="Items\Weapons\Tomes\PulseRune.cs" />
     <Compile Include="MyPlayer.cs" />
+    <Compile Include="NPCs\DiseasedSlime.cs" />
+    <Compile Include="NPCs\GlobalNPC.cs" />
+    <Compile Include="NPCs\GlobalNPCInfo.cs" />
+    <Compile Include="NPCs\HeadlessZambie.cs" />
+    <Compile Include="NPCs\JeweledSlime.cs" />
     <Compile Include="NPCs\LoneTrapper.cs" />
     <Compile Include="NPCs\ModGlobalNPC.cs" />
     <Compile Include="NPCs\Rogue.cs" />
+    <Compile Include="NPCs\ShrapnelZombie.cs" />
+    <Compile Include="NPCs\WanderingSoul.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
@@ -168,6 +194,7 @@
     <Compile Include="Projectiles\SpectreKnifeProjectile.cs" />
     <Compile Include="Projectiles\Swords\IchorSword.cs" />
     <Compile Include="Projectiles\ThornbloomKnifeProjectile.cs" />
+    <Compile Include="Projectiles\TimeWinderClone.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpiritMod.cs" />
     <Compile Include="Tiles\SpiritTorch.cs" />
@@ -175,16 +202,6 @@
     <Compile Include="Walls\SpiritWall.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="bin\Debug\SpiritMod.exe.config" />
-    <None Include="bin\Debug\SpiritMod.vshost.exe.config" />
-    <None Include="bin\Debug\SpiritMod.vshost.exe.manifest" />
-    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <None Include="obj\Debug\Project3.csprojResolveAssemblyReference.cache" />
-    <None Include="obj\Debug\SpiritMod.csprojResolveAssemblyReference.cache" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="bin\Debug\SpiritMod.vshost.exe" />
     <Content Include="build.txt" />
     <Content Include="description.txt" />
     <Content Include="Items\Bismite\BismiteBow.png" />
@@ -267,6 +284,7 @@
     <Content Include="Items\Paladin\PaladinGreaves_Legs.png" />
     <Content Include="Items\Paladin\PaladinHelm.png" />
     <Content Include="Items\Paladin\PaladinHelm_Head.png" />
+    <Content Include="Items\Putrid\PutridPiece.png" />
     <Content Include="Items\Rune\Rune.png" />
     <Content Include="Items\Rune\RunicGreaves.png" />
     <Content Include="Items\Rune\RunicGreaves_Legs.png" />
@@ -291,30 +309,42 @@
     <Content Include="Items\Shuriken\PlatinumShurikenProjectile.png" />
     <Content Include="Items\Shuriken\SilverShuriken.png" />
     <Content Include="Items\Shuriken\SilverShurikenProjectile.png" />
+    <Content Include="Items\Shuriken\SporeBall.png" />
+    <Content Include="Items\Shuriken\SporeBallProjectile.png" />
     <Content Include="Items\Shuriken\Tile\KnifeShapener.png" />
     <Content Include="Items\Shuriken\TinShuriken.png" />
     <Content Include="Items\Shuriken\TinShurikenProjectile.png" />
     <Content Include="Items\Shuriken\TungstenShuriken.png" />
     <Content Include="Items\Shuriken\TungstenShurikenProjectile.png" />
     <Content Include="Items\Spirit\SpiritBar.png" />
+    <Content Include="Items\Spirit\SpiritBedItem.png" />
     <Content Include="Items\Spirit\SpiritBodyArmor.png" />
     <Content Include="Items\Spirit\SpiritBodyArmor_Arms.png" />
     <Content Include="Items\Spirit\SpiritBodyArmor_Body.png" />
     <Content Include="Items\Spirit\SpiritBodyArmor_FemaleBody.png" />
+    <Content Include="Items\Spirit\SpiritChairItem.png" />
     <Content Include="Items\Spirit\SpiritChest.png" />
+    <Content Include="Items\Spirit\SpiritDirtItem.png" />
+    <Content Include="Items\Spirit\SpiritDoorItem.png" />
     <Content Include="Items\Spirit\SpiritHeadgear.png" />
     <Content Include="Items\Spirit\SpiritHeadgear_Head.png" />
     <Content Include="Items\Spirit\SpiritItems.png" />
     <Content Include="Items\Spirit\SpiritLeggings.png" />
     <Content Include="Items\Spirit\SpiritLeggings_Legs.png" />
+    <Content Include="Items\Spirit\SpiritSandItem.png" />
+    <Content Include="Items\Spirit\SpiritStoneItem.png" />
+    <Content Include="Items\Spirit\SpiritTableItem.png" />
     <Content Include="Items\Spirit\SpiritTorchItem.png" />
     <Content Include="Items\Spirit\SpiritWallItem.png" />
     <Content Include="Items\Spirit\SpiritWoodItem.png" />
     <Content Include="Items\Spirit\SpiritWorkbench.png" />
+    <Content Include="Items\Spirit\Tiles\SpiritBed.png" />
+    <Content Include="Items\Spirit\Tiles\SpiritChair.png" />
     <Content Include="Items\Spirit\Tiles\SpiritChest.png" />
+    <Content Include="Items\Spirit\Tiles\SpiritDoorClosed.png" />
+    <Content Include="Items\Spirit\Tiles\SpiritDoorOpen.png" />
+    <Content Include="Items\Spirit\Tiles\SpiritTable.png" />
     <Content Include="Items\Spirit\Tiles\SpiritWorkbench.png" />
-    <Content Include="Items\Tools\IchorHamaxe.png" />
-    <Content Include="Items\Tools\IchorPickaxe.png" />
     <Content Include="Items\TrapperClass\IronCageLauncher.png" />
     <Content Include="Items\TrapperClass\IronCageLauncherProjectile.png" />
     <Content Include="Items\TrapperClass\IronNetLauncher.png" />
@@ -326,13 +356,19 @@
     <Content Include="Items\Weapons\Knifes\IchorKnife.png" />
     <Content Include="Items\Weapons\Knifes\SpectreKnife.png" />
     <Content Include="Items\Weapons\Knifes\ThornbloomKnife.png" />
+    <Content Include="Items\Weapons\TimeWinder.png" />
+    <Content Include="Items\Weapons\Tomes\Hyperpulse.png" />
+    <Content Include="Items\Weapons\Tomes\PulseRune.png" />
+    <Content Include="NPCs\DiseasedSlime.png" />
+    <Content Include="NPCs\HeadlessZambie.png" />
+    <Content Include="NPCs\JeweledSlime.png" />
     <Content Include="NPCs\LoneTrapper.png" />
     <Content Include="NPCs\LoneTrapper_Head.png" />
     <Content Include="NPCs\Rogue.png" />
     <Content Include="NPCs\Rogue_Bad.png" />
     <Content Include="NPCs\Rogue_Head.png" />
-    <Content Include="obj\Debug\Project3.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Debug\SpiritMod.csproj.FileListAbsolute.txt" />
+    <Content Include="NPCs\ShrapnelZombie.png" />
+    <Content Include="NPCs\WanderingSoul.png" />
     <Content Include="Ore\SpiritOre.png" />
     <Content Include="Ore\SpiritOreTile.png" />
     <Content Include="Projectiles\AvengersDaggerProjectile.png" />
@@ -343,17 +379,26 @@
     <Content Include="Projectiles\SpectreKnifeProjectile.png" />
     <Content Include="Projectiles\Swords\IchorSword.png" />
     <Content Include="Projectiles\ThornbloomKnifeProjectile.png" />
+    <Content Include="Projectiles\TimeWinderClone.png" />
     <Content Include="Tiles\SpiritTorch.png" />
     <Content Include="Tiles\SpiritTorch_Flame.png" />
     <Content Include="Tiles\SpiritWood.png" />
     <Content Include="Walls\SpiritWall.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include=".vs\SpiritMod\v14\" />
+    <Folder Include="bin\Debug\" />
     <Folder Include="bin\Release\" />
     <Folder Include="Buffs\" />
     <Folder Include="Dusts\" />
+    <Folder Include="Items\Tools\" />
     <Folder Include="Mounts\" />
     <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Items\Shuriken\GoldShuriken.zip" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
