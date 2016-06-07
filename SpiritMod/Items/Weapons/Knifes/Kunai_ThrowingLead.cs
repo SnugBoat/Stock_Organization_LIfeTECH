@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Weapons.Knifes
 {
-    public class Kunai_Throwing : ModItem
+    public class Kunai_ThrowingLead : ModItem
     {
         public override void SetDefaults()
         {
@@ -37,9 +37,9 @@ namespace SpiritMod.Items.Weapons.Knifes
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+			 ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Silk, 1);
-            recipe.AddIngredient(ItemID.IronBar, 10);
+            recipe.AddIngredient(ItemID.LeadBar, 10);
             recipe.AddTile(16);
             recipe.SetResult(this, 30);
             recipe.AddRecipe();
