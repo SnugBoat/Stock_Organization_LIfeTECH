@@ -38,7 +38,7 @@ public override bool CanExplode(int i, int j)
 						if (Main.tile[A,B].type == 0)
 						{ 
 							WorldGen.KillTile(A, B);
-							WorldGen.PlaceTile(A, B, mod.TileType("SpiritGrass"));
+							WorldGen.PlaceTile(A, B, mod.TileType("SpiritDirt"));
 						}
 						else if (Main.tile[A,B].type == 1)
 						{ 

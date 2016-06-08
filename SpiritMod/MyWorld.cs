@@ -33,7 +33,7 @@ public static bool spiritBiome = false;
 				{
 					if (Main.tile[A,B].active())
 					{
-						if (Main.tile[A,B].type == 0) // A = x, B = y.
+						if (Main.tile[A,B].type == TileID.Dirt) // A = x, B = y.
 						{ 
 							WorldGen.KillTile(A, B);
 							WorldGen.PlaceTile(A, B, mod.TileType("SpiritDirt"));
