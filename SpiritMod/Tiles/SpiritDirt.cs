@@ -45,7 +45,7 @@ public override bool CanExplode(int i, int j)
 							WorldGen.KillTile(A, B);
 							WorldGen.PlaceTile(A, B, mod.TileType("SpiritStone"));
 						}
-						else if (Main.tile[A,B].type == TileID.Ice)
+						else if (Main.tile[A,B].type == 161)
 						{ 
 							WorldGen.KillTile(A, B);
 							WorldGen.PlaceTile(A, B, mod.TileType("SpiritIce"));
