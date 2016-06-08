@@ -19,7 +19,6 @@ namespace SpiritMod.Items.Rune
 			item.noUseGraphic = true;
 			item.noMelee = true;
 			item.pick = 190;
-			item.tileBoost = 25;
 			item.useStyle = 5;
 			item.knockBack = 0;
 			item.rare = 5;
