@@ -18,7 +18,7 @@ public static bool spiritBiome = false;
 	{
 		if (spiritBiome == false)
 		{
-			if (NPC.downedMechBoss1 == true || NPC.downedMechBoss2 == true || NPC.downedMechBoss3 == true)
+			if (NPC.downedMechBoss3 == true)
 			{
 			spiritBiome = true;
 			int Xvalue = WorldGen.genRand.Next(300, Main.maxTilesX - 600);
