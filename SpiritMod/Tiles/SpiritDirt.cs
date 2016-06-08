@@ -17,7 +17,7 @@ namespace SpiritMod.Tiles
 			Main.tileMergeDirt[Type] = true;
 			Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = true;
-			AddMapEntry(new Color(210, 180, 140));
+			AddMapEntry(new Color(173, 216, 230));
 			drop = mod.ItemType("SpiritDirtItem");
 		}
 
