@@ -33,15 +33,16 @@ public static bool spiritBiome = false;
 				{
 					if (Main.tile[A,B].active())
 					{
-						if (Main.tile[A,B].type == TileID.Stone)
-						{ 
-							WorldGen.KillTile(A, B);
-							WorldGen.PlaceTile(A, B, mod.TileType("SpiritStone"));
-						}
-						else if (Main.tile[A,B].type == TileID.Dirt) // A = x, B = y.
+						Main.NewText("The ancient spirits have been revived.", Color.Orange.R, Color.Orange.G, Color.Orange.B);
+						if (Main.tile[A,B].type == TileID.Dirt)
 						{ 
 							WorldGen.KillTile(A, B);
 							WorldGen.PlaceTile(A, B, mod.TileType("SpiritDirt"));
+						}
+						else if (Main.tile[A,B].type == TileID.Stone) // A = x, B = y.
+						{ 
+							WorldGen.KillTile(A, B);
+							WorldGen.PlaceTile(A, B, mod.TileType("SpiritStone"));
 						}
 						else if (Main.tile[A,B].type == 5)
 						{ 
