@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using Terraria.World.Generation;
 namespace SpiritMod.Tiles
 {
-	public class SpiritSand : ModTile
+	public class Spiritsand : ModTile
 	{
 		public override void SetDefaults()
 		{
@@ -51,7 +51,7 @@ public override bool CanExplode(int i, int j)
 						else if (Main.tile[A,B].type == 53)
 						{ 
 							WorldGen.KillTile(A, B);
-							WorldGen.PlaceTile(A, B, mod.TileType("SpiritSand"));
+							WorldGen.PlaceTile(A, B, mod.TileType("Spiritsand"));
 						}
 						else if (Main.tile[A,B].type == 3)
 						{ 

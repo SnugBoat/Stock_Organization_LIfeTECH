@@ -57,7 +57,7 @@ public static bool spiritBiome = false;
 						else if (Main.tile[A,B].type == TileID.Sand)
 						{ 
 							WorldGen.KillTile(A, B);
-							WorldGen.PlaceTile(A, B, mod.TileType("SpiritSand"));
+							WorldGen.PlaceTile(A, B, mod.TileType("Spiritsand"));
 						}
 						else if (Main.tile[A,B].type == TileID.Grass)
 						{ 
