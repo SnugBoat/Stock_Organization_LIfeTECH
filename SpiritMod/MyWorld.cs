@@ -61,12 +61,17 @@ public static bool spiritBiome = false;
 						else if (Main.tile[A,B].type == TileID.Grass)
 						{ 
 							WorldGen.KillTile(A, B);
-							WorldGen.PlaceTile(A, B, mod.TileType("SpiritDirt"));
+							WorldGen.PlaceTile(A, B, mod.TileType("SpiritGrass"));
+						}
+						else if (Main.tile[A,B].type == TileID.Ice)
+						{ 
+							WorldGen.KillTile(A, B);
+							WorldGen.PlaceTile(A, B, mod.TileType("SpiritIce"));
 						}
                         else if (Main.tile[A,B].type == TileID.CorruptGrass)
 						{ 
 							WorldGen.KillTile(A, B);
-							WorldGen.PlaceTile(A, B, mod.TileType("SpiritDirt"));
+							WorldGen.PlaceTile(A, B, mod.TileType("SpiritGrass"));
 						}
                         
 					}

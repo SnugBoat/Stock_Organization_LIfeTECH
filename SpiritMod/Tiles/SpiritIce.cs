@@ -8,17 +8,16 @@ using System.Collections.Generic;
 using Terraria.World.Generation;
 namespace SpiritMod.Tiles
 {
-	public class SpiritDirt : ModTile
+	public class SpiritIce : ModTile
 	{
 		public override void SetDefaults()
 		{
 			Main.tileSolid[Type] = true;
-			Main.tileMerge[Type][mod.TileType("SpiritGrass")] = true;
 			Main.tileMergeDirt[Type] = true;
 			Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = true;
 			AddMapEntry(new Color(128, 128, 128));
-			drop = mod.ItemType("SpiritDirtItem");
+		//	drop = mod.ItemType("SpiritIceItem");
 		}
 
 public override bool CanExplode(int i, int j)
@@ -31,10 +30,10 @@ public override bool CanExplode(int i, int j)
 		{
 				for (int B = i - 1; B < i + 1; B++)
 				{
-					if (Main.tile[A, B].active())
+					if (Main.tile[A,B] != null)
 					{
-					if (Main.rand.Next(200) == 1)
-                        {
+					if (Main.rand.Next(1000) == 1)
+					{
 						if (Main.tile[A,B].type == 0)
 						{ 
 							WorldGen.KillTile(A, B);
@@ -45,15 +44,14 @@ public override bool CanExplode(int i, int j)
 							WorldGen.KillTile(A, B);
 							WorldGen.PlaceTile(A, B, mod.TileType("SpiritStone"));
 						}
+						else if (Main.tile[A,B].type == 5)
+						{ 
+							WorldGen.PlaceTile(A, B, mod.TileType("SpiritWood"));
+						}
 						else if (Main.tile[A,B].type == TileID.Ice)
 						{ 
 							WorldGen.KillTile(A, B);
 							WorldGen.PlaceTile(A, B, mod.TileType("SpiritIce"));
-						}
-						else if (Main.tile[A,B].type == 5)
-						{ 
-							WorldGen.KillTile(A, B);
-							WorldGen.PlaceTile(A, B, mod.TileType("SpiritWood"));
 						}
 						else if (Main.tile[A,B].type == 53)
 						{ 
@@ -62,7 +60,6 @@ public override bool CanExplode(int i, int j)
 						}
 						else if (Main.tile[A,B].type == 3)
 						{ 
-							WorldGen.KillTile(A, B);
 							WorldGen.PlaceTile(A, B, mod.TileType("SpiritGrass"));
 						}
 					}
