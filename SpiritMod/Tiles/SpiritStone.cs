@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using Terraria.World.Generation;
 namespace SpiritMod.Tiles
 {
-	public class SpiritSand : ModTile
+	public class SpiritStone : ModTile
 	{
 		public override void SetDefaults()
 		{
@@ -16,8 +16,8 @@ namespace SpiritMod.Tiles
 			Main.tileMergeDirt[Type] = true;
 			Main.tileBlockLight[Type] = true;
 			Main.tileLighted[Type] = true;
-			AddMapEntry(new Color(135, 206, 235));
-			drop = mod.ItemType("SpiritSandItem");
+			AddMapEntry(new Color(70, 130, 180));
+		//	drop = mod.ItemType("SpiritStoneItem");
 		}
 
 public override bool CanExplode(int i, int j)
@@ -48,6 +48,11 @@ public override bool CanExplode(int i, int j)
 						{ 
 							WorldGen.PlaceTile(A, B, mod.TileType("SpiritWood"));
 						}
+						else if (Main.tile[A,B].type == 161)
+						{ 
+							WorldGen.KillTile(A, B);
+							WorldGen.PlaceTile(A, B, mod.TileType("SpiritIce"));
+						}
 						else if (Main.tile[A,B].type == 53)
 						{ 
 							WorldGen.KillTile(A, B);
@@ -55,7 +60,7 @@ public override bool CanExplode(int i, int j)
 						}
 						else if (Main.tile[A,B].type == 3)
 						{ 
-							WorldGen.PlaceTile(A, B, mod.TileType("SpiritDirt"));
+							WorldGen.PlaceTile(A, B, mod.TileType("SpiritGrass"));
 						}
 					}
 					}
