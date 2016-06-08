@@ -32,7 +32,7 @@ public override bool CanExplode(int i, int j)
 				{
 					if (Main.tile[A,B] != null)
 					{
-					if (Main.rand.Next(3) == 1)
+					if (Main.rand.Next(1000) == 1)
 					{
 						if (Main.tile[A,B].type == 0)
 						{ 
