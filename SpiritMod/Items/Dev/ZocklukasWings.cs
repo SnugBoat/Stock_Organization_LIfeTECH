@@ -64,8 +64,8 @@ namespace SpiritMod.Items.Dev
 
         public override void HorizontalWingSpeeds(ref float speed, ref float acceleration)
         {
-            speed = 50.0f;
-            acceleration *= 10.0f;
+            speed = 40.0f;
+            acceleration *= 7.0f;
         }        
     }
 }
