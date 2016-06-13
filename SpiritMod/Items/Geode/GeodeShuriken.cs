@@ -14,8 +14,8 @@ namespace SpiritMod.Items.Geode
             item.width = 26;
             item.height = 26;           
             item.shoot = mod.ProjectileType("GeodeShurikenProjectile");
-            item.useAnimation = 14;
-            item.useTime = 14;
+            item.useAnimation = 15;
+            item.useTime = 15;
             item.shootSpeed = 11f;
             item.damage = 42;
             item.knockBack = 1.0f;
