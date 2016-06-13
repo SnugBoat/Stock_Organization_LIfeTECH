@@ -10,11 +10,11 @@ namespace SpiritMod.Items.Geode
         public override void SetDefaults()
         {
             item.name = "Geode Hamaxe";
-            item.damage = 23;
+            item.damage = 16;
             item.melee = true;
             item.width = 42;
             item.height = 40;
-            item.useTime = 14;
+            item.useTime = 15;
             item.useAnimation = 25;
             item.axe = 32;
             item.hammer = 80;
