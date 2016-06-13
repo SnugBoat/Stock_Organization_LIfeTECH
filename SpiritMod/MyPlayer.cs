@@ -28,7 +28,7 @@ namespace SpiritMod
         {
             if (!loaded)
             {
-                Main.NewText("Thanks for using the Spitit Mod", 0, 191, 255);
+                Main.NewText("Thanks for using the Spirit Mod", 0, 191, 255);
                 Main.NewText("Mod Website: ", 0, 191, 255);
                 Main.NewText("http://forums.terraria.org/index.php?threads/the-spirit-mod.41395/", 0, 191, 255);
                 loaded = true;
