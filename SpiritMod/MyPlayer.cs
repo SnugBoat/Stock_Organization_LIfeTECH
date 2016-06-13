@@ -9,6 +9,7 @@ namespace SpiritMod
 {
     public class MyPlayer : ModPlayer
     {
+        private bool loaded = false;
         private const int saveVersion = 0;
         public bool minionName = false;
         public static bool hasProjectile;
@@ -21,6 +22,17 @@ namespace SpiritMod
         public override void PostUpdateEquips()
         {
 
+        }
+
+        public override void PreUpdate()
+        {
+            if (!loaded)
+            {
+                Main.NewText("Thanks for using the Spitit Mod", 0, 191, 255);
+                Main.NewText("Mod Website: ", 0, 191, 255);
+                Main.NewText("http://forums.terraria.org/index.php?threads/the-spirit-mod.41395/", 0, 191, 255);
+                loaded = true;
+            }
         }
     }
 }
