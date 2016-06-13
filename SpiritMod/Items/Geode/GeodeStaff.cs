@@ -10,12 +10,12 @@ namespace SpiritMod.Items.Geode
         public override void SetDefaults()
         {
             item.name = "Geode Breaker";
-            item.damage = 51;
+            item.damage = 44;
             item.melee = true;
             item.width = 36;
             item.height = 36;
-            item.useTime = 34;
-            item.useAnimation = 34;            
+            item.useTime = 35;
+            item.useAnimation = 35;            
             item.useStyle = 1;
             item.knockBack = 7;
             item.value = 10000;
