@@ -14,16 +14,16 @@ namespace SpiritMod.Items.Geode
 		{
             
 			item.name = "Geode Staff";
-			item.damage = 42;
+			item.damage = 35;
 			item.magic = true;
 			item.mana = 20;
 			item.width = 22;
 			item.height = 34;
-			item.useTime = 30;
-			item.useAnimation = 30;
+			item.useTime = 31;
+			item.useAnimation = 31;
 			item.useStyle = 5;
-			Item.staff[item.type] = true; //this makes the useStyle animate as a staff instead of as a gun
-			item.noMelee = true; //so the item's animation doesn't do damage
+			Item.staff[item.type] = true; 
+			item.noMelee = true; 
 			item.knockBack = 3;
 			item.value = 10000;
 			item.rare = 4;
@@ -33,7 +33,7 @@ namespace SpiritMod.Items.Geode
 			item.shootSpeed = 4;
             item.crit = 6;
         }
-        public override void AddRecipes()  //How to craft this sword
+        public override void AddRecipes()  
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "Geode", 14);
