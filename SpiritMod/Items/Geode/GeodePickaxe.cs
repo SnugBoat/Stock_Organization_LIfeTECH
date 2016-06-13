@@ -14,9 +14,9 @@ namespace SpiritMod.Items.Geode
             item.melee = true;
             item.width = 36;
             item.height = 36;
-            item.useTime = 7;
+            item.useTime = 8;
             item.useAnimation = 23;
-            item.pick = 175;               
+            item.pick = 110;               
             item.useStyle = 1;
             item.knockBack = 4;
             item.value = 10000;
