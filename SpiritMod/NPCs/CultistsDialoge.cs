@@ -48,6 +48,9 @@ namespace SpiritMod.NPCs
                     case 4:
                         chat = "This is the only path to forgiveness.";
                         return;
+					case 5:
+                        chat = "I see you resurrected the spirits. We are not happy about that.";
+                        return;
                     default:
                         chat = "Hail the lunar lord, human!";
                         return;
