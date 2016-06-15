@@ -10,8 +10,8 @@ namespace SpiritMod.NPCs.Bosses
         {
             npc.name = "Illuminant Master";
             npc.displayName = "Illuminant Master";
-         //   npc.width = 16;
-           // npc.height = 12;
+            npc.width = 130;
+            npc.height = 154;
             npc.damage = 32;
             npc.defense = 34;
             npc.lifeMax = 22000;
@@ -19,24 +19,18 @@ namespace SpiritMod.NPCs.Bosses
             npc.soundKilled = 1;
             npc.value = 60f;
             npc.knockBackResist = 20f;
-            Main.npcFrameCount[npc.type] = 5;
+            Main.npcFrameCount[npc.type] = 7;
      
         }
 		public override void AI()
         {
-            npc.frameCounter++;
-            if (npc.frameCounter >= 8)
-            {
-                npc.frameCounter = 0;
-                npc.frame = (npc.frame + 1) % 2;
-            }
 		if (npc.life < 11000)
 		{ 
-			int Xdis = Main.player[Main.myPlayer].Center.X - npc.Center.X;
-			int Ydis = Main.player[Main.myPlayer].Center.Y - npc.Center.Y;
-			float Hypotanuse = (float)Math.Sqrt((Xdis * Xdis) + (Ydis * Ydis);
-			float TrijectoryX = (float)Math.Acos(Xdis / H) * 8;
-			float TrijectoryY = (float)Math.Asin(Ydis / H) * 8;
+			int Xdis = Main.player[Main.myPlayer].Center.X - npc.Center.X;  // change myplayer to nearest player in full version
+			int Ydis = Main.player[Main.myPlayer].Center.Y - npc.Center.Y; // change myplayer to nearest player in full version
+			float Hypotanuse = (float)Math.Sqrt((Xdis * Xdis) + (Ydis * Ydis));
+			float TrijectoryX = (float)Math.Acos(Xdis / Hypotanuse) * 3;
+			float TrijectoryY = (float)Math.Asin(Ydis / Hypotanuse) * 3;
 			npc.ai[0]++;
 			if(npc.ai[0] % 250 >= 75) // X
 			{
@@ -48,11 +42,16 @@ namespace SpiritMod.NPCs.Bosses
 				npc.position.X = (Main.player[Main.myPlayer].position.X - 250) + Main.rand.Next(500);
 				npc.position.Y = (Main.player[Main.myPlayer].position.Y - 250) + Main.rand.Next(500);
 			}
-			if(npc.ai[0] % 250 <= 75 || ) // Z
+			if(npc.ai[0] % 250 <= 75) // Z
 			{
 				npc.speedX = TrijectoryX / 20;
 				npc.speedY = TrijectoryX / 20;
 			}
+			if (npc.ai[0]%8==0)
+            {
+                npc.frame.Y = (int)(npc.height * npc.frameCounter);
+                npc.frameCounter = (npc.frameCounter+1) % 5;
+            }
 		}
 		if (npc.life >= 11000)
 		{
