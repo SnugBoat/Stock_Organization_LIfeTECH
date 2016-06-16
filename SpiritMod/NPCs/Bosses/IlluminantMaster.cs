@@ -40,26 +40,26 @@ namespace SpiritMod.NPCs.Bosses
 			float TrijectoryX = (float)(Math.Sin(Angle));
 			float TrijectoryY = (float)(Math.Cos(Angle));
 			npc.ai[0]++;
-			if(npc.ai[0] % 250 == 75 && Main.player[Main.myPlayer].Center.Y < npc.Center.Y && Main.player[Main.myPlayer].Center.X < npc.Center.X) // X
+			if(npc.ai[0] % 250 <= 75 && Main.player[Main.myPlayer].Center.Y < npc.Center.Y && Main.player[Main.myPlayer].Center.X < npc.Center.X) // X
 			{
 				XSpeed = 0 - TrijectoryX;
 				YSpeed = 0 - TrijectoryY;
 				//Main.NewText("" + XSpeed + "Is what it will go", 0, 0, 0, true);
 			}
 			
-			if(npc.ai[0] % 250 == 75 && Main.player[Main.myPlayer].Center.Y < npc.Center.Y && Main.player[Main.myPlayer].Center.X > npc.Center.X) // X
+			if(npc.ai[0] % 250 <= 75 && Main.player[Main.myPlayer].Center.Y < npc.Center.Y && Main.player[Main.myPlayer].Center.X > npc.Center.X) // X
 			{
 				XSpeed = 0 - TrijectoryX;
 				YSpeed = 0 - TrijectoryY;
 				//Main.NewText("" + XSpeed + "Is what it will go", 0, 0, 0, true);
 			}
-			if(npc.ai[0] % 250 == 75 && Main.player[Main.myPlayer].Center.Y >= npc.Center.Y && Main.player[Main.myPlayer].Center.X > npc.Center.X) // X
+			if(npc.ai[0] % 250 <= 75 && Main.player[Main.myPlayer].Center.Y >= npc.Center.Y && Main.player[Main.myPlayer].Center.X > npc.Center.X) // X
 			{
 				XSpeed = TrijectoryX;
 				YSpeed = TrijectoryY;
 				//Main.NewText("" + XSpeed + "Is what it will go", 0, 0, 0, true);
 			}
-			if(npc.ai[0] % 250 == 75 && Main.player[Main.myPlayer].Center.Y >= npc.Center.Y && Main.player[Main.myPlayer].Center.X <= npc.Center.X) // X
+			if(npc.ai[0] % 250 <= 75 && Main.player[Main.myPlayer].Center.Y >= npc.Center.Y && Main.player[Main.myPlayer].Center.X <= npc.Center.X) // X
 			{
 				XSpeed = TrijectoryX;
 				YSpeed = TrijectoryY;
@@ -71,9 +71,16 @@ namespace SpiritMod.NPCs.Bosses
 				npc.velocity.Y = YSpeed * 9;
 				//Main.NewText("" + XSpeed + "Is what it is moving at", 0, 0, 0, true);
 			}
-			if(npc.ai[0] % 250 >= 76 && npc.ai[0] % 5 == 0) // X
+			if(npc.ai[0] % 250 == 30 && Main.rand.Next(2) == 1) // X
 			{
-			//	Projectile.NewProjectile(npc.position.X, npc.position.Y, 0, 0, mod.ProjectileType("IlluminantMasterVision"), 0, 0, Main.myPlayer);
+				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, (XSpeed * 3), YSpeed * 3, mod.ProjectileType("Spark"), 22, 0f, Main.myPlayer);
+				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, (XSpeed * 3) * 0.85f, (YSpeed * 3) * 1.25f, mod.ProjectileType("Spark"), 22, 0f, Main.myPlayer);
+				Projectile.NewProjectile(npc.Center.X, npc.Center.Y, (XSpeed * 3) * 1.15f, (YSpeed * 3) * 0.85f, mod.ProjectileType("Spark"), 22, 0f, Main.myPlayer);
+				//Main.NewText("" + XSpeed + "Is what it is moving at", 0, 0, 0, true);
+			}
+			if(npc.ai[0] % 250 >= 76 && npc.ai[0] % 35 == 0) // X
+			{
+				Projectile.NewProjectile(npc.Center.X, npc.Center.Y + 50, 0.1f, 8f, mod.ProjectileType("Starstrike"), 25, 0f, Main.myPlayer);
 				//Main.NewText("" + XSpeed + "Is what it is moving at", 0, 0, 0, true);
 			}
 			if(npc.ai[0] % 250 == 0) // Y
