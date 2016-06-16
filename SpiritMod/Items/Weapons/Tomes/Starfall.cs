@@ -11,7 +11,7 @@ namespace SpiritMod.Items.Weapons.Tomes
 		public override void SetDefaults()
 		{
 			item.name = "Starfall";
-			item.damage = 16;
+			item.damage = 38;
 			item.magic = true;
 			item.mana = 20;
 			item.width = 40;
@@ -41,7 +41,7 @@ namespace SpiritMod.Items.Weapons.Tomes
 			float Angle = (float)Math.Atan(Xdis / Ydis);
 			float TrijectoryX = (float)(Math.Sin(Angle));
 			float TrijectoryY = (float)(Math.Cos(Angle));
-                Projectile.NewProjectile((position.X - 50) + Main.rand.Next(100), position.Y - 400, 0 - (TrijectoryX * Main.rand.Next(11,14)), (TrijectoryY * Main.rand.Next(11,14)), type, damage, knockBack, player.whoAmI);
+                Projectile.NewProjectile((position.X - 50) + Main.rand.Next(100), position.Y - 400, 0 - (TrijectoryX * Main.rand.Next(12,16)), (TrijectoryY * Main.rand.Next(11,14)), type, damage, knockBack, player.whoAmI);
             }
             return false;
         }
