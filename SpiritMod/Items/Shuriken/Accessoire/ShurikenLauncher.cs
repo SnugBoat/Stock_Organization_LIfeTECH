@@ -8,9 +8,9 @@ namespace SpiritMod.Items.Shuriken.Accessoire
     {
         public override void SetDefaults()
         {
-            item.name = "Shuriken Launcher";  
-            item.width = 65;     
-            item.height = 21;   
+            item.name = "Throwers Glove";  
+            item.width = 48;     
+            item.height = 49;   
             item.toolTip = "Gives your Shuriken an Boost!";
             item.toolTip2 = "Increased Thrown Crit and Damage";
             item.rare = 1;
