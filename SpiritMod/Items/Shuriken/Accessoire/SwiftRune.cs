@@ -9,8 +9,8 @@ namespace SpiritMod.Items.Shuriken.Accessoire
         public override void SetDefaults()
         {
             item.name = "Swiftness Rune";  
-            item.width = 65;     
-            item.height = 21;   
+            item.width = 42;     
+            item.height = 42;   
             item.toolTip = "Gives your Shuriken an Boost!";
             item.toolTip2 = "Increased Thrown Velocity and Movement Speed";
             item.rare = 1;
