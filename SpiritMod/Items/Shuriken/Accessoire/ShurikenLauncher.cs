@@ -21,7 +21,7 @@ namespace SpiritMod.Items.Shuriken.Accessoire
         }
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.thrownDamage += 0.1f;
+            player.thrownDamage += 0.10f;
             player.thrownCrit = 4;            
         }
     }
