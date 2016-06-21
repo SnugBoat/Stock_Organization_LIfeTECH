@@ -21,8 +21,8 @@ namespace SpiritMod.Items.Shuriken.Accessoire
         }
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.thrownVelocity += 0.30f;
-            player.moveSpeed += 0.20f;
+            player.thrownVelocity += 0.20f;
+            player.moveSpeed += 0.15f;
         }
     }
 }
