@@ -21,11 +21,12 @@ public static bool spiritBiome = false;
 			if (spiritBiome == false)
 			{
 			spiritBiome = true;
+			Main.NewText("The ancient spirits have been revived.", Color.Orange.R, Color.Orange.G, Color.Orange.B);
 			int Xvalue = WorldGen.genRand.Next(300, Main.maxTilesX - 600);
 			int Yvalue = (int)Main.worldSurface - 300;
-			int XvalueHigh = Xvalue + 600;
+			int XvalueHigh = Xvalue + 300;
 			int YvalueHigh = Yvalue + 600;
-			int XvalueMid = Xvalue + 300;
+			int XvalueMid = Xvalue + 150;
 			int YvalueMid = Yvalue + 300;
 			for (int A = Xvalue; A < XvalueHigh; A++)
 			{
@@ -33,7 +34,6 @@ public static bool spiritBiome = false;
 				{
 					if (Main.tile[A,B].active())
 					{
-						Main.NewText("The ancient spirits have been revived.", Color.Orange.R, Color.Orange.G, Color.Orange.B);
 						if (Main.tile[A,B].type == TileID.Dirt)
 						{ 
 							WorldGen.KillTile(A, B);
