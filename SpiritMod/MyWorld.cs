@@ -14,11 +14,11 @@ namespace SpiritMod
 
 public static bool spiritBiome = false;
 
-	public override void PostUpdate()
+	public override void PostUpdate() 
 	{
-		if (spiritBiome == false)
-		{
-			if (NPC.downedMechBoss3 == true)
+            if (NPC.downedMechBoss3 == true)
+            {
+			if (spiritBiome == false)
 			{
 			spiritBiome = true;
 			int Xvalue = WorldGen.genRand.Next(300, Main.maxTilesX - 600);
