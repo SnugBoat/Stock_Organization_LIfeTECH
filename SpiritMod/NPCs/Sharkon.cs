@@ -19,6 +19,7 @@ namespace SpiritMod.NPCs
             npc.soundKilled = 1;
             npc.value = 60f;
             npc.knockBackResist = .55f;
+            npc.noGravity = true;
             npc.aiStyle = 16;
             Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.Shark];
             aiType = NPCID.Shark;
