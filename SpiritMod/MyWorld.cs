@@ -12,8 +12,24 @@ namespace SpiritMod
 	public class MyWorld : ModWorld
 	{
 
+
 public static bool spiritBiome = false;
 
+public override void Initialize()
+        {
+
+            Zocklukas.DailyBuff.used = true;
+
+            if (NPC.downedMechBoss3 == true)
+            {
+                spiritBiome = true;
+            }
+            else
+            {
+                spiritBiome = false;
+            }
+        }
+        
 	public override void PostUpdate() 
 	{
             if (NPC.downedMechBoss3 == true)
