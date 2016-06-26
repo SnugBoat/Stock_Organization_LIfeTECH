@@ -12,8 +12,21 @@ namespace SpiritMod
 	public class MyWorld : ModWorld
 	{
 
+
 public static bool spiritBiome = false;
 
+public override void Initialize()
+        {
+            if (NPC.downedMechBoss3 == true)
+            {
+                spiritBiome = true;
+            }
+            else
+            {
+                spiritBiome = false;
+            }
+        }
+        
 	public override void PostUpdate() 
 	{
             if (NPC.downedMechBoss3 == true)
@@ -24,9 +37,9 @@ public static bool spiritBiome = false;
 			Main.NewText("The ancient spirits have been revived.", Color.Orange.R, Color.Orange.G, Color.Orange.B);
 			int Xvalue = WorldGen.genRand.Next(300, Main.maxTilesX - 600);
 			int Yvalue = (int)Main.worldSurface - 300;
-			int XvalueHigh = Xvalue + 160;
+			int XvalueHigh = Xvalue + 300;
 			int YvalueHigh = Yvalue + 600;
-			int XvalueMid = Xvalue + 80;
+			int XvalueMid = Xvalue + 150;
 			int YvalueMid = Yvalue + 300;
 			for (int A = Xvalue; A < XvalueHigh; A++)
 			{
