@@ -36,7 +36,7 @@ namespace SpiritMod.NPCs
                 npc.ai[0]++;
                 if (npc.ai[0] >= 120)
                 {
-                    int type = ProjectileID.ShadowFlames;
+                    int type = ProjectileID.Shadowflames;
                     int p = Projectile.NewProjectile(npc.position.X, npc.position.Y, -(npc.position.X - target.position.X) / distance * 4, -(npc.position.Y - target.position.Y) / distance * 4, type, (int)((npc.damage * .5)), 0);
                     Main.projectile[p].friendly = false;
                     Main.projectile[p].hostile = true;
