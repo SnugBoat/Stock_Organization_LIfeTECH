@@ -19,11 +19,9 @@ namespace SpiritMod.NPCs
             npc.soundKilled = 6;
             npc.value = 60f;
             npc.knockBackResist = 0f;
-            npc.noGravity = true;
-            npc.noTileCollide = true;
             npc.aiStyle = 56;
             Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.ChaosBall];
-            aiType = NPCID.DungeonSpirit;
+            aiType = NPCID.ChaosBall;
             animationType = NPCID.ChaosBall;
         }
 

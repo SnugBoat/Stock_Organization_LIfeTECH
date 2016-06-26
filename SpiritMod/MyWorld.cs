@@ -39,8 +39,8 @@ public override void Initialize()
 			int Yvalue = (int)Main.worldSurface - 300;
 			int XvalueHigh = Xvalue + 300;
 			int YvalueHigh = Yvalue + 600;
-			int XvalueMid = Xvalue + 150;
-			int YvalueMid = Yvalue + 300;
+			int XvalueMid = Xvalue + 80;
+			int YvalueMid = Yvalue + 160;
 			for (int A = Xvalue; A < XvalueHigh; A++)
 			{
 				for (int B = Yvalue; B < YvalueHigh; B++)

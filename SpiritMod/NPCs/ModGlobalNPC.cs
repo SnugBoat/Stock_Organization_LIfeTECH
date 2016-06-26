@@ -24,7 +24,18 @@ namespace SpiritMod.NPCs
                     Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("PaladinGreaves"));
                 }
             }
-            
+            if (Main.bloodMoon)   
+            {
+                if (Main.rand.Next(1) == 0)      
+                {
+                    if (npc.type == NPCID.Clothier)
+                    {
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ZocklukasWings"));
+                        Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("ZocklukasRing"));
+                    }
+                }
+              
+            }
             if (Main.rand.Next(98) == 0)    
             {
                 if (npc.type == NPCID.MartianTurret)    
