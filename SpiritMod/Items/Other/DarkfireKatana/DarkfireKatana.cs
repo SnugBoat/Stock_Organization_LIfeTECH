@@ -20,8 +20,8 @@ namespace SpiritMod.Items.Other.DarkfireKatana
             item.melee = true;            
             item.width = 60;              
             item.height = 64;             
-            item.toolTip = "At Rightclick,these Sword and its user gets Extremly strong for 30s";
-            item.toolTip2 = "MrTheEpicNinjias Dev Item";
+            item.toolTip = "Right Click to make the Sword and it's user immensely powerful for 30 seconds.";
+            item.toolTip2 = "The weapon of an Epic Ninja";
             item.useStyle = 1;        
             item.knockBack = 5;      
             item.value = 1000;        
