@@ -7,7 +7,7 @@ using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace SpiritMod
+namespace PotionsPlus
 {
     class SpiritMod : Mod
     {
