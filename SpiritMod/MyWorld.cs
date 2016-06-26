@@ -17,9 +17,6 @@ public static bool spiritBiome = false;
 
 public override void Initialize()
         {
-
-            Zocklukas.DailyBuff.used = true;
-
             if (NPC.downedMechBoss3 == true)
             {
                 spiritBiome = true;
