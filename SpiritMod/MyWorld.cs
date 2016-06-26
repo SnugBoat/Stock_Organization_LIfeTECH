@@ -60,7 +60,6 @@ public override void Initialize()
 						else if (Main.tile[A,B].type == 5)
 						{ 
 							WorldGen.KillTile(A, B);
-							WorldGen.PlaceTile(A, B, mod.TileType("SpiritWood"));
 						}
 						else if (Main.tile[A,B].type == 199)
 						{ 
