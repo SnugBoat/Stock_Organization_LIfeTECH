@@ -5,5 +5,5 @@ homepage = http://forums.terraria.org/index.php?threads/the-spirit-mod.41395/pag
 hideCode = true
 hideResources = true
 includeSource = false
-buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*
-includePDB = false
+buildIgnore = .gitignore, *.sln, *.csproj, *.user, obj\*, bin\*, .vs\*, Properties\*
+includePDB = true

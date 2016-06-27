@@ -1,2 +1,3 @@
 C:\Users\lukas\Documents\My Games\Terraria\ModLoader\Mod Sources\SpiritMod\bin\Debug\SpiritMod.exe.config
 C:\Users\lukas\Documents\My Games\Terraria\ModLoader\Mod Sources\SpiritMod\obj\Debug\SpiritMod.csprojResolveAssemblyReference.cache
+D:\Data\Source\Repos\Spirit-Mod\SpiritMod\obj\Debug\SpiritMod.csprojResolveAssemblyReference.cache
