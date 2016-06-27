@@ -31,7 +31,9 @@ namespace SpiritMod.Items.Rune
         public override void UpdateArmorSet(Player player)
         {
             player.setBonus = "Setbonus Dont Works Currently!";
-        }
+			SPlayer sPlayer = (SPlayer)player.GetModPlayer(mod, "SPlayer");
+			sPlayer.runicSet = true;
+		}
 
         public override void UpdateEquip(Player player)
         {
