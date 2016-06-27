@@ -45,15 +45,49 @@ public override void Initialize()
 			{
 				for (int B = Yvalue; B < YvalueHigh; B++)
 				{
+						if (Main.tile[A,B].wall == 2)
+						{ 
+							WorldGen.KillWall(A, B);
+							WorldGen.PlaceWall(A, B, mod.WallType("SpiritWall"));
+						}
+						if (Main.tile[A,B].wall == 1)
+						{ 
+							WorldGen.KillWall(A, B);
+							WorldGen.PlaceWall(A, B, mod.WallType("SpiritWall"));
+						}
+						if (Main.tile[A,B].wall == 40)
+						{ 
+							WorldGen.KillWall(A, B);
+							WorldGen.PlaceWall(A, B, mod.WallType("SpiritWall"));
+						}
+                        if (Main.tile[A,B].wall >= 48 && Main.tile[A,B].wall <= 65)
+						{ 
+							WorldGen.KillWall(A, B);
+							WorldGen.PlaceWall(A, B, mod.WallType("SpiritWall"));
+						}
+						if (Main.tile[A,B].wall >= 188 && Main.tile[A,B].wall <= 222)
+						{ 
+							WorldGen.KillWall(A, B);
+							WorldGen.PlaceWall(A, B, mod.WallType("SpiritWall"));
+						}
+						if (Main.tile[A,B].wall == 81 || Main.tile[A,B].wall == 3 || Main.tile[A,B].wall == 69 || Main.tile[A,B].wall == 70 || Main.tile[A,B].wall == 71 || Main.tile[A,B].wall == 83 || Main.tile[A,B].wall == 170 || Main.tile[A,B].wall == 171)
+						{ 
+							WorldGen.KillWall(A, B);
+							WorldGen.PlaceWall(A, B, mod.WallType("SpiritWall"));
+						}
 					if (Main.tile[A,B].active())
 					{
 						if (Main.tile[A,B].type == TileID.Dirt)
 						{ 
+							WorldGen.KillWall(A, B);
+							WorldGen.PlaceWall(A, B, mod.WallType("SpiritWall"));
 							WorldGen.KillTile(A, B);
 							WorldGen.PlaceTile(A, B, mod.TileType("SpiritDirt"));
 						}
 						else if (Main.tile[A,B].type == TileID.Stone) // A = x, B = y.
 						{ 
+							WorldGen.KillWall(A, B);
+							WorldGen.PlaceWall(A, B, mod.WallType("SpiritWall"));
 							WorldGen.KillTile(A, B);
 							WorldGen.PlaceTile(A, B, mod.TileType("SpiritStone"));
 						}
@@ -68,6 +102,8 @@ public override void Initialize()
 						}
 						else if (Main.tile[A,B].type == TileID.Sand)
 						{ 
+							WorldGen.KillWall(A, B + 1);
+							WorldGen.PlaceWall(A, B + 1, mod.WallType("SpiritWall"));
 							WorldGen.KillTile(A, B);
 							WorldGen.PlaceTile(A, B, mod.TileType("Spiritsand"));
 						}
@@ -78,6 +114,8 @@ public override void Initialize()
 						}
 						else if (Main.tile[A,B].type == 161)
 						{ 
+							WorldGen.KillWall(A, B);
+							WorldGen.PlaceWall(A, B, mod.WallType("SpiritWall"));
 							WorldGen.KillTile(A, B);
 							WorldGen.PlaceTile(A, B, mod.TileType("SpiritIce"));
 						}
@@ -85,8 +123,7 @@ public override void Initialize()
 						{ 
 							WorldGen.KillTile(A, B);
 							WorldGen.PlaceTile(A, B, mod.TileType("SpiritGrass"));
-						}
-                        
+						}		
 					}
 				}
 			} 
