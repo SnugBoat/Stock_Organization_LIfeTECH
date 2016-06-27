@@ -14,6 +14,14 @@ namespace SpiritMod
         public bool minionName = false;
         public static bool hasProjectile;
 
+        public bool ZoneSpirit = false;
+
+
+        public override void UpdateBiomes()
+        {
+            ZoneSpirit = (MyWorld.SpiritTiles > 500);
+        }
+
         public override void ResetEffects()
         {
             minionName = false;
@@ -23,6 +31,7 @@ namespace SpiritMod
         {
 
         }
+
 
         public override void PreUpdate()
         {

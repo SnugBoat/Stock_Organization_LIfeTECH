@@ -11,11 +11,16 @@ namespace SpiritMod
 {
 	public class MyWorld : ModWorld
 	{
+        public static int SpiritTiles = 0;
 
+        public static bool spiritBiome = false;
 
-public static bool spiritBiome = false;
+        public override void TileCountsAvailable(int[] tileCounts)
+        {
+            SpiritTiles = tileCounts[mod.TileType("SpiritDirt")] + tileCounts[mod.TileType("SpiritStone")] + tileCounts[mod.TileType("Spiritsand")] + tileCounts[mod.TileType("SpiritIce")];
+        }
 
-public override void Initialize()
+        public override void Initialize()
         {
             if (NPC.downedMechBoss3 == true)
             {
