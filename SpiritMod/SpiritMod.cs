@@ -20,5 +20,27 @@ namespace SpiritMod
                 AutoloadSounds = true
             };
         }
+        public override void ChatInput(string text)
+        {
+            if (text == "/help")
+            {
+                Help();
+            }
+            else if (text == "/Spirit")
+            {
+                Spirit();
+            }
+        }
+        private void Spirit()
+        {
+            NPC.downedMechBoss3 = true;
+            MyWorld.spiritBiome = false;
+        }
+
+        private void Help()
+        {
+            Main.NewText("/BiomeReset to spawn / respawn the Spirit Biome");
+            Main.NewText("");
+        }
     }
 }
