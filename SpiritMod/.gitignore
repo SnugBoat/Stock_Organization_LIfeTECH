@@ -1,0 +1,9 @@
+/.vs/
+/bin/
+/obj/
+/Properties/
+*.user
+*.sln
+*.cache
+*.zip
+*.rar
