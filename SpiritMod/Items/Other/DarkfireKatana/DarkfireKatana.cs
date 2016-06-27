@@ -63,7 +63,7 @@ namespace SpiritMod.Items.Other.DarkfireKatana
                 else
                 {
                     player.AddBuff(mod.BuffType("PowerUnleash"), 1800);
-                    player.AddBuff(mod.BuffType("UnPowered"), 10800);
+                    player.AddBuff(mod.BuffType("UnPowered"), 7200);
                 }
             }
             
