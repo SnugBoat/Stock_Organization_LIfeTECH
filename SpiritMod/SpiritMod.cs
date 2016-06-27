@@ -39,7 +39,7 @@ namespace SpiritMod
 
         private void Help()
         {
-            Main.NewText("/BiomeReset to spawn / respawn the Spirit Biome");
+            Main.NewText("/Spirit to spawn / respawn the Spirit Biome");
             Main.NewText("");
         }
     }
