@@ -13,6 +13,8 @@ namespace SpiritMod
         private const int saveVersion = 0;
         public bool minionName = false;
         public static bool hasProjectile;
+        public bool DoomDestiny = false;
+        public int HitNumber;
 
         public bool ZoneSpirit = false;
 
@@ -41,6 +43,19 @@ namespace SpiritMod
                 Main.NewText("Mod Website: ", 0, 191, 255);
                 Main.NewText("http://forums.terraria.org/index.php?threads/the-spirit-mod.41395/", 0, 191, 255);
                 loaded = true;
+            }
+        }
+        
+                public override void UpdateBadLifeRegen()
+        {
+            if (DoomDestiny)
+            {
+                if (player.lifeRegen > 0)
+                {
+                    player.lifeRegen = 0;
+                }
+                player.lifeRegenTime = 0;
+                player.lifeRegen -= 16;
             }
         }
     }
