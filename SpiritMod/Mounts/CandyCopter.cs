@@ -222,7 +222,7 @@ namespace SpiritMod.Mounts
 				mount._frameState = state;
 			}
 			//End of required vanilla code
-			
+
 			//Adjust animation speed after landing/takeoff
 			if (state == 0)
 			{
