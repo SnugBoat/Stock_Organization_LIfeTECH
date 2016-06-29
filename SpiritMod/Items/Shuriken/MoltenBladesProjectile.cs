@@ -24,7 +24,6 @@ namespace SpiritMod.Items.Shuriken
             {
                 int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 158);
             }
-            projectile.rotation += 0.3f;
         }
 
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
