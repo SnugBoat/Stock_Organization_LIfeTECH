@@ -28,7 +28,7 @@ namespace SpiritMod.Items.Shuriken
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.GoldBar, 1);
+            recipe.AddIngredient(ItemID.Headstone, 1);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this, 50);
             recipe.AddRecipe();
