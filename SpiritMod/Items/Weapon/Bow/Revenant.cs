@@ -2,7 +2,7 @@ using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace SpiritMod.Items.Weapons.Bow
+namespace SpiritMod.Items.Weapon.Bow
 {
 	public class Revenant : ModItem
 	{

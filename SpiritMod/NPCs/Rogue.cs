@@ -101,7 +101,7 @@ namespace SpiritMod.NPCs
 
 		public override string GetChat()
 		{
-			int Wizard = NPCs.FindFirstNPC(NPCID.Wizard);
+			int Wizard = NPC.FindFirstNPC(NPCID.Wizard);
 			if (Wizard >= 0 && Main.rand.Next(8) == 0)
 			{
 				return "Tell " + Main.npc[Wizard].displayName + " to stop asking me where I got the charms. He doesn't need to know that. He would die from shock.";
@@ -151,7 +151,7 @@ namespace SpiritMod.NPCs
                 shop.item[nextSlot].SetDefaults(mod.ItemType("TinShuriken"));
                 nextSlot++;
             }
-            if (NPCs.downedBoss1 == true)
+            if (NPC.downedBoss1 == true)
             {
                 shop.item[nextSlot].SetDefaults(mod.ItemType("IronShuriken"));
                 nextSlot++;
@@ -159,7 +159,7 @@ namespace SpiritMod.NPCs
                 nextSlot++;
 
             }
-            if (NPCs.downedBoss2 == true)
+            if (NPC.downedBoss2 == true)
             {
                 shop.item[nextSlot].SetDefaults(mod.ItemType("SilverShuriken"));
                 nextSlot++;
@@ -167,7 +167,7 @@ namespace SpiritMod.NPCs
                 nextSlot++;
 
             }
-            if (NPCs.downedBoss3 == true)
+            if (NPC.downedBoss3 == true)
             {
                 shop.item[nextSlot].SetDefaults(mod.ItemType("GoldShuriken"));
                 nextSlot++;
@@ -175,7 +175,7 @@ namespace SpiritMod.NPCs
                 nextSlot++;
 
             }
-            if (NPCs.downedMechBossAny == true) 
+            if (NPC.downedMechBossAny == true) 
             {
                 shop.item[nextSlot].SetDefaults(mod.ItemType("TwilightBlades"));
                 

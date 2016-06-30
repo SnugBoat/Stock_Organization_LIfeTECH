@@ -54,7 +54,7 @@ namespace SpiritMod.NPCs.Town
 				{
 					for (int j = 0; j < player.inventory.Length; j++)
 					{
-                        if (NPCs.downedMechBossAny == true)
+                        if (NPC.downedMechBossAny == true)
                         {
 							return true;
 						}

@@ -165,7 +165,7 @@ namespace SpiritMod.NPCs
 			{
 				return 0f;
 			}
-			if (!NPCs.downedMechBossAny)
+			if (!NPC.downedMechBossAny)
 			{
 				return 1.5f;
 			}
