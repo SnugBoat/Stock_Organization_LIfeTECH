@@ -9,6 +9,9 @@ namespace SpiritMod
 {
     public class MyPlayer : ModPlayer
     {
+		public Entity LastEnemyHit = null;
+public bool hpRegenRing = false;
+public bool TiteRing = false;
         private bool loaded = false;
         private const int saveVersion = 0;
         public bool minionName = false;
@@ -17,8 +20,7 @@ namespace SpiritMod
         public int HitNumber;
 
         public bool ZoneSpirit = false;
-
-
+		
         public override void UpdateBiomes()
         {
             ZoneSpirit = (MyWorld.SpiritTiles > 500);
@@ -27,11 +29,23 @@ namespace SpiritMod
         public override void ResetEffects()
         {
             minionName = false;
+			hpRegenRing = false;
+			TiteRing = false;
         }
 
-        public override void PostUpdateEquips()
+		public override void OnHitAnything(float x, float y, Entity victim)
         {
-
+            MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
+            if (modPlayer.TiteRing && modPlayer.LastEnemyHit == victim && Main.rand.Next(10) == 2)
+            {
+                player.AddBuff(59, 145);
+            }
+			if (modPlayer.hpRegenRing && modPlayer.LastEnemyHit == victim && Main.rand.Next(3) == 2)
+            {
+                player.AddBuff(58, 120);
+            }
+            LastEnemyHit = victim;
+            base.OnHitAnything(x, y, victim);
         }
 
 
