@@ -10,7 +10,7 @@ namespace SpiritMod.Projectiles
 	{
 		public static void YoyoAI(int index, float seconds, float length, float acceleration = 14f, float rotationSpeed = 0.45f, ExtraAction action = null, ExtraAction initialize = null)
 		{
-			Projectile projectile = Main.projectile[index];
+			Terraria.Projectile projectile = Main.projectile[index];
 			bool flag = false;
 			if (initialize != null && projectile.localAI[1] == 0f)
 			{
@@ -220,7 +220,7 @@ namespace SpiritMod.Projectiles
 
 		public static void SpearAI(int index, float protractSpeed = 1.5f, float retractSpeed = 1.4f, ExtraAction action = null, ExtraAction initialize = null)
 		{
-			Projectile projectile = Main.projectile[index];
+			Terraria.Projectile projectile = Main.projectile[index];
 			if (initialize != null && projectile.localAI[1] == 0f)
 			{
 				projectile.localAI[1] = 1f;
@@ -266,7 +266,7 @@ namespace SpiritMod.Projectiles
 
 		public static void FlailAI(int index, float initialRange = 160f, float weaponOutRange = 300f, float retractRange = 100f, ExtraAction action = null, ExtraAction initialize = null)
 		{
-			Projectile projectile = Main.projectile[index];
+			Terraria.Projectile projectile = Main.projectile[index];
 			if (initialize != null && projectile.localAI[1] == 0f)
 			{
 				projectile.localAI[1] = 1f;
@@ -386,7 +386,7 @@ namespace SpiritMod.Projectiles
 
 		public static bool FlailTileCollide(int index, Vector2 oldVelocity)
 		{
-			Projectile projectile = Main.projectile[index];
+			Terraria.Projectile projectile = Main.projectile[index];
 			bool flag = false;
 			if (oldVelocity.X != projectile.velocity.X)
 			{
@@ -416,7 +416,7 @@ namespace SpiritMod.Projectiles
 
 		public static void BoomerangAI(int index, float retractTime = 30f, float speed = 9f, float speedAcceleration = 0.4f, ExtraAction action = null, ExtraAction initialize = null)
 		{
-			Projectile projectile = Main.projectile[index];
+			Terraria.Projectile projectile = Main.projectile[index];
 			if (initialize != null && projectile.localAI[1] == 0f)
 			{
 				projectile.localAI[1] = 1f;
@@ -502,7 +502,7 @@ namespace SpiritMod.Projectiles
 
 		public static bool BoomerangTileCollide(int index, Vector2 oldVelocity)
 		{
-			Projectile projectile = Main.projectile[index];
+			Terraria.Projectile projectile = Main.projectile[index];
 			Collision.HitTiles(projectile.position, projectile.velocity, projectile.width, projectile.height);
 			projectile.ai[0] = 1f;
 			projectile.velocity.X = -oldVelocity.X;
@@ -514,7 +514,7 @@ namespace SpiritMod.Projectiles
 
 		public static void BoomerangOnHitEntity(int index)
 		{
-			Projectile projectile = Main.projectile[index];
+			Terraria.Projectile projectile = Main.projectile[index];
 			if (projectile.ai[0] == 0f)
 			{
 				projectile.velocity.X = -projectile.velocity.X;
@@ -526,7 +526,7 @@ namespace SpiritMod.Projectiles
 
 		public static void ThrowingKnifeAI(int index, int airTime = 20, ExtraAction action = null, ExtraAction initialize = null)
 		{
-			Projectile projectile = Main.projectile[index];
+			Terraria.Projectile projectile = Main.projectile[index];
 			if (initialize != null && projectile.localAI[1] == 0f)
 			{
 				projectile.localAI[1] = 1f;
@@ -555,7 +555,7 @@ namespace SpiritMod.Projectiles
 
 		public static void Explode(int index, int sizeX, int sizeY, ExtraAction visualAction = null)
 		{
-			Projectile projectile = Main.projectile[index];
+			Terraria.Projectile projectile = Main.projectile[index];
 			if (!projectile.active)
 			{
 				return;
@@ -630,7 +630,7 @@ namespace SpiritMod.Projectiles
 
 		public static void DrawString(int index, Vector2 to = default(Vector2))
 		{
-			Projectile projectile = Main.projectile[index];
+			Terraria.Projectile projectile = Main.projectile[index];
 			Vector2 mountedCenter = Main.player[projectile.owner].MountedCenter;
 			Vector2 vector = mountedCenter;
 			vector.Y += Main.player[projectile.owner].gfxOffY;
@@ -778,7 +778,7 @@ namespace SpiritMod.Projectiles
 		public static void DrawChain(int index, Vector2 to, string chainPath)
 		{
 			Texture2D texture = ModLoader.GetTexture(chainPath);
-			Projectile projectile = Main.projectile[index];
+			Terraria.Projectile projectile = Main.projectile[index];
 			Vector2 vector = projectile.Center;
 			Rectangle? sourceRectangle = null;
 			Vector2 origin = new Vector2((float)texture.Width * 0.5f, (float)texture.Height * 0.5f);
@@ -815,7 +815,7 @@ namespace SpiritMod.Projectiles
 
 		public static void DrawAroundOrigin(int index, Color lightColor)
 		{
-			Projectile projectile = Main.projectile[index];
+			Terraria.Projectile projectile = Main.projectile[index];
 			Texture2D texture2D = Main.projectileTexture[projectile.type];
 			Vector2 origin = new Vector2((float)texture2D.Width * 0.5f, (float)(texture2D.Height / Main.projFrames[projectile.type]) * 0.5f);
 			SpriteEffects effects = (projectile.direction == -1) ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
@@ -824,7 +824,7 @@ namespace SpiritMod.Projectiles
 
 		public static void DrawSpear(int index, Color lightColor)
 		{
-			Projectile projectile = Main.projectile[index];
+			Terraria.Projectile projectile = Main.projectile[index];
 			Vector2 zero = Vector2.Zero;
 			SpriteEffects effects = SpriteEffects.None;
 			if (projectile.spriteDirection == -1)

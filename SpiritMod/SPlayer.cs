@@ -136,7 +136,7 @@ namespace SpiritMod
 					if (this.drakomireFlameTimer >= 15)
 					{
 						Vector2 vector = player.Center + new Vector2((float)(26 * -(float)player.direction), 26f * player.gravDir);
-						Projectile.NewProjectile(vector.X, vector.Y, 0f, 0f, mod.ProjectileType("DrakomireFlame"), player.statDefense / 2, 0f, player.whoAmI, 0f, 0f);
+						Terraria.Projectile.NewProjectile(vector.X, vector.Y, 0f, 0f, mod.ProjectileType("DrakomireFlame"), player.statDefense / 2, 0f, player.whoAmI, 0f, 0f);
 						this.drakomireFlameTimer = 0;
 					}
 				}
@@ -234,7 +234,7 @@ namespace SpiritMod
 									}
 									if (flag && Main.myPlayer == player.whoAmI)
 									{
-										Projectile.NewProjectile(center.X, center.Y, 0f, 0f, num3, num, num2, player.whoAmI, 0f, 0f);
+										Terraria.Projectile.NewProjectile(center.X, center.Y, 0f, 0f, num3, num, num2, player.whoAmI, 0f, 0f);
 										return;
 									}
 								}

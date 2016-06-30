@@ -1,0 +1,10 @@
+/SpiritMod/App.config
+/SpiritMod/.vs/
+/SpiritMod/bin/
+/SpiritMod/obj/
+/SpiritMod/Properties/
+*.user
+*.sln
+*.cache
+/SpiritMod*.zip
+/SpiritMod*.rar

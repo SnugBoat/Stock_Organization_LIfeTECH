@@ -193,7 +193,7 @@ namespace SpiritMod.Mounts
 							vX += Main.rand.Next(-30, 31) * 0.02f;
 							vY += Main.rand.Next(-30, 31) * 0.02f;
 						}
-						Projectile.NewProjectile(muzzle.X, muzzle.Y, vX, vY, mod.ProjectileType("CandyCopterBullet"), (int)(damage * player.minionDamage), knockback * player.minionKB, player.whoAmI); //CandyCopterBullet
+						Terraria.Projectile.NewProjectile(muzzle.X, muzzle.Y, vX, vY, mod.ProjectileType("CandyCopterBullet"), (int)(damage * player.minionDamage), knockback * player.minionKB, player.whoAmI); //CandyCopterBullet
 					}
 					Point point = player.Center.ToTileCoordinates();
 					Lighting.AddLight(point.X, point.Y, lightColor.X, lightColor.Y, lightColor.Z);
@@ -214,7 +214,7 @@ namespace SpiritMod.Mounts
 		public override bool UpdateFrame(Player mountedPlayer, int state, Vector2 velocity)
 		{
 			PlayerHook modPlayer = mountedPlayer.GetModPlayer<PlayerHook>(mod);
-			Mount mount = mountedPlayer.mount;
+			Terraria.Mount mount = mountedPlayer.mount;
 			//Part of vanilla code, mount will glitch out
 			// if this is not executed.
 			if (mount._frameState != state)

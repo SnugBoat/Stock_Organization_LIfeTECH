@@ -165,7 +165,7 @@ namespace SpiritMod.NPCs
 			{
 				return 0f;
 			}
-			if (!NPC.downedMechBossAny)
+			if (!NPCs.downedMechBossAny)
 			{
 				return 1.5f;
 			}
@@ -176,7 +176,7 @@ namespace SpiritMod.NPCs
 		{
 			if (Main.rand.Next(20) == 0)
 			{
-				Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StarPiece"));
+				Terraria.Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("StarPiece"));
 			}
 		}
 	}
