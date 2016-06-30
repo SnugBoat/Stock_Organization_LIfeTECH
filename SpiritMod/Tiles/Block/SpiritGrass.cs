@@ -25,9 +25,9 @@ namespace SpiritMod.Tiles.Block
 	public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
         {
             {
-                r = 0.0f;
-                g = 0.2f;
-                b = 1.2f;
+                r = 0.4f;
+                g = 0.6f;
+                b = 1.4f;
             }
         }
 
