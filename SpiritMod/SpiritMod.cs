@@ -39,21 +39,81 @@ namespace SpiritMod
 		public override void PostSetupContent()
 		{
 			LoadReferences();
-		}
-
-		private void LoadReferences()
-		{
-			Mounts.CandyCopter._ref = GetMount("CandyCopter");
 			Item ccoutfit = new Item();
 			ccoutfit.SetDefaults(ItemType("CandyCopterOutfit"));
 			Mounts.CandyCopter._outfit = ccoutfit.legSlot;
+		}
 
-			//Buffs.Diseased._ref = GetBuff("Diseased");
-			//Items.Bismite.BismiteBodyguard._ref = GetItem("BismiteBodyguard");
-			//Items.Bismite.BismiteGreaves._ref = GetItem("BismiteGreaves");
-			//Items.Bismite.BismiteHelm._ref = GetItem("BismiteHelm");
-			//Items.Bismite.BismiteKnife._ref = GetItem("BismiteKnife");
-			//Items.Bismite.WrathShard._ref = GetItem("WrathShard");
+		/// <summary>
+		/// Scans all classes deriving from any Mod type
+		/// for a field called _ref
+		/// and populates it, if it exists.
+		/// </summary>
+		private void LoadReferences()
+		{
+			foreach (Type type in Code.GetTypes())
+			{
+				if (type.IsAbstract)
+				{
+					continue;
+				}
+
+				System.Reflection.FieldInfo field = type.GetField("_ref");
+				if (field == null || !field.IsStatic)
+				{
+					continue;
+				}
+
+				if (type.IsSubclassOf(typeof(ModItem)))
+				{
+					if (field.FieldType == typeof(ModItem))
+					{
+						field.SetValue(null, GetItem(type.Name));
+					}
+				} else if (type.IsSubclassOf(typeof(ModNPC)))
+				{
+					if (field.FieldType == typeof(ModNPC))
+					{
+						field.SetValue(null, GetNPC(type.Name));
+					}
+				} else if (type.IsSubclassOf(typeof(ModProjectile)))
+				{
+					if (field.FieldType == typeof(ModProjectile))
+					{
+						field.SetValue(null, GetProjectile(type.Name));
+					}
+				} else if (type.IsSubclassOf(typeof(ModDust)))
+				{
+					if (field.FieldType == typeof(ModDust))
+					{
+						field.SetValue(null, GetDust(type.Name));
+					}
+				} else if (type.IsSubclassOf(typeof(ModTile)))
+				{
+					if (field.FieldType == typeof(ModTile))
+					{
+						field.SetValue(null, GetTile(type.Name));
+					}
+				} else if (type.IsSubclassOf(typeof(ModWall)))
+				{
+					if (field.FieldType == typeof(ModWall))
+					{
+						field.SetValue(null, GetWall(type.Name));
+					}
+				} else if (type.IsSubclassOf(typeof(ModBuff)))
+				{
+					if (field.FieldType == typeof(ModBuff))
+					{
+						field.SetValue(null, GetBuff(type.Name));
+					}
+				} else if (type.IsSubclassOf(typeof(ModMountData)))
+				{
+					if (field.FieldType == typeof(ModMountData))
+					{
+						field.SetValue(null, GetMount(type.Name));
+					}
+				}
+			}
 		}
 
 	}
