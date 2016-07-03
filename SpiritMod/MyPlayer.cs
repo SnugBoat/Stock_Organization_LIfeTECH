@@ -18,7 +18,7 @@ public bool TiteRing = false;
         public static bool hasProjectile;
         public bool DoomDestiny = false;
         public int HitNumber;
-
+public bool SRingOn = true;
         public bool ZoneSpirit = false;
 		
         public override void UpdateBiomes()
@@ -72,5 +72,28 @@ public bool TiteRing = false;
                 player.lifeRegen -= 16;
             }
         }
+        		public override void PostHurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
+{
+    if (SRingOn == true)
+    {
+        int newProj = Terraria.Projectile.NewProjectile(player.Center.X, player.Center.Y, (2 * 3), 2 * 3, 356, 40, 0f, Main.myPlayer);
+        
+        int dist = 800;
+        int target = -1;
+        for(int i = 0; i < 200; ++i)
+        {
+            if(Main.npc[i].active && Main.npc[i].CanBeChasedBy(Main.projectile[newProj], false))
+            {
+                if( (Main.npc[i].Center - Main.projectile[newProj].Center).Length() < dist )
+                {
+                    target = i;
+                    break;
+                }
+            }
+        }
+        
+        Main.projectile[newProj].ai[0] = target;
+    }
+}
     }
 }
