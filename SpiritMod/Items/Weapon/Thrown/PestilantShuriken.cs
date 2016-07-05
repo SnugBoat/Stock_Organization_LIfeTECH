@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 
 namespace SpiritMod.Items.Weapon.Thrown {
-public class PestilentShuriken : ModItem
+public class PestilantShuriken : ModItem
 {
 	
     public override void SetDefaults()
@@ -22,7 +22,7 @@ public class PestilentShuriken : ModItem
         item.useAnimation = 14;
         item.useStyle = 1;
 		item.shootSpeed = 10f;
-		item.shoot = mod.ProjectileType("PestilentShurikenProj");
+		item.shoot = mod.ProjectileType("PestilantShurikenProjectile");
         item.knockBack = 0;
 		item.useSound = 1;
 		item.scale = 1f;
