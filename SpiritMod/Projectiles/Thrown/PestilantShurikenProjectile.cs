@@ -1,39 +1,50 @@
 using System;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ID;
 
-namespace SpiritMod.Projectiles.Thrown
+namespace SpiritMod.Projectiles.Thrown {
+public class PestilentShurikenProj : ModProjectile
 {
-	public class PestilantShurikenProjectile : ModProjectile
-    {
-        public override void SetDefaults()
+	public override void SetDefaults()
+	{
+		projectile.name = "Pestilent Shuriken";
+		projectile.width = 22;
+		projectile.height = 22;
+		projectile.aiStyle = 2;
+		projectile.penetrate = 4;
+		projectile.thrown = true;
+		projectile.friendly = true;
+		projectile.alpha = 0;
+		
+	}
+
+	public override bool OnTileCollide(Vector2 oldVelocity)
+	{
+		projectile.penetrate--;
+		if (projectile.penetrate <= 0)
+		{
+			projectile.Kill();
+		}
+       
+		if (projectile.velocity.X != oldVelocity.X)
+		{
+			projectile.velocity.X = -oldVelocity.X;
+		}
+		if (projectile.velocity.Y != oldVelocity.Y)
+		{
+			projectile.velocity.Y = -oldVelocity.Y * 1.3f;
+		}
+		Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 10);
+		return false;
+	}
+	
+	public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            projectile.CloneDefaults(ProjectileID.Shuriken);
-            projectile.name = "Pestilant Shuriken";         
-            projectile.width = 20;
-            projectile.height = 20;
-
-
-        }
-
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-        {
-            if (Main.rand.Next(1) == 0)
+            if (Main.rand.Next(2) == 0)
             {
-               target.AddBuff(BuffID.BrokenArmor, 200, true); //change broken armor to new buff. 
-            }            
-        }
-
-        public override void Kill(int timeLeft)
-        {
-            for (int i = 0; i < 5; i++)
-            {
-                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 10);
+                target.AddBuff(BuffID.CursedInferno, 60, false);
             }
-            Main.PlaySound(0, (int)projectile.position.X, (int)projectile.position.Y);
         }
-    }
-}
+}}
