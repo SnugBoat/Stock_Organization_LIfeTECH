@@ -31,7 +31,7 @@ public bool SRingOn = true;
             minionName = false;
 			hpRegenRing = false;
 			TiteRing = false;
-			SRing = true;
+			SRingOn = true;
         }
 
 		public override void OnHitAnything(float x, float y, Entity victim)
