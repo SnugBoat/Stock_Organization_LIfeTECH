@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 
 namespace SpiritMod.Projectiles.Thrown {
-public class PestilentShurikenProj : ModProjectile
+public class PestilantShurikenProjectile : ModProjectile
 {
 	public override void SetDefaults()
 	{
