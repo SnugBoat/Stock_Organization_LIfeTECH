@@ -49,7 +49,20 @@ public bool SRingOn = true;
             base.OnHitAnything(x, y, victim);
         }
 
-
+		public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
+		{
+			if (SRingOn == true)
+			{
+				for (int h = 0; h < 3; h++)
+			{
+				Vector2 vel = new Vector2(0, -1);
+				float rand = Main.rand.NextFloat() * 6.283f;
+				vel = vel.RotatedBy(rand);
+				vel *= 2f;
+				int proj = Projectile.NewProjectile(Main.player[Main.myPlayer].Center.X, Main.player[Main.myPlayer].Center.Y, vel.X, vel.Y, 297, 45, 0, Main.myPlayer);
+			}
+			}
+		}
         public override void PreUpdate()
         {
             if (!loaded)
