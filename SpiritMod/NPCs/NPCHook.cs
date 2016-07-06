@@ -6,11 +6,11 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.NPCs
 {
-	public class SpiritGlobalNPC : GlobalNPC
+	public class NPCHook : GlobalNPC
 	{
 		public override void ResetEffects(NPC npc)
 		{
-			GlobalNPCInfo info = (GlobalNPCInfo)npc.GetModInfo(mod, "GlobalNPCInfo");
+			NPCData info = npc.GetModInfo<NPCData>(mod);
 			info.DoomDestiny = false;
 		}
 		
@@ -24,7 +24,7 @@ namespace SpiritMod.NPCs
 
         public override void UpdateLifeRegen(NPC npc, ref int damage)
         {
-            if (npc.GetModInfo<GlobalNPCInfo>(mod).DoomDestiny)
+            if (npc.GetModInfo<NPCData>(mod).DoomDestiny)
             {
                 if (npc.lifeRegen > 0)
                 {

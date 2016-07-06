@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.NPCs
 {
-	public class GlobalNPCInfo : NPCInfo
+	public class NPCData : NPCInfo
 	{
 		public bool DoomDestiny = false;
 	}
