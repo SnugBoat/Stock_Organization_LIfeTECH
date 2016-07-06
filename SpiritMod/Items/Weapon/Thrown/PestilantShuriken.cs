@@ -33,12 +33,12 @@ public class PestilantShuriken : ModItem
 		item.maxStack = 999;
     }
 
-    public override void AddRecipes()
-    {
-        ModRecipe recipe = new ModRecipe(mod);
-        recipe.AddIngredient(ItemID.DirtBlock, 1);
-        recipe.AddTile(TileID.Anvils);
-        recipe.SetResult(this, 150);
-        recipe.AddRecipe();
-    }
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "PutridPiece", 1);
+            recipe.AddTile(TileID.Anvils);
+            recipe.SetResult(this, 150);
+            recipe.AddRecipe();
+        }
 }}
