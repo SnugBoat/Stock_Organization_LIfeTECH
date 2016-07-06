@@ -19,7 +19,7 @@ namespace SpiritMod.Items.Weapon.Thrown
             item.channel = true;
             item.noMelee = true;
             item.shoot = mod.ProjectileType("AdamantiteKnifeProjectile");
-            item.useAnimation = 13;
+            item.useAnimation = 25;
             item.consumable = true;
             item.maxStack = 999;
             item.useTime = 25;
