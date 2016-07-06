@@ -19,7 +19,14 @@ namespace SpiritMod.NPCs
                 npc.knockBackResist = 0f;
             }
         }
-
+		public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns)
+		{
+			if (player.GetModPlayer<MyPlayer>(mod).ZoneSpirit)
+			{
+				spawnRate = (int)(spawnRate * 0.2f);
+				maxSpawns = (int)(maxSpawns * 2f);
+			}
+        }
         public override void GetChat(NPC npc, ref string chat)
         {
             if (npc.type == 379)

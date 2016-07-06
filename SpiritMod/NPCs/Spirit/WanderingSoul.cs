@@ -31,9 +31,9 @@ namespace SpiritMod.NPCs.Spirit
         }
 
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
-        {
-            return spawnInfo.spawnTileY < Main.rockLayer ? 0.5f : 0f;
-        }
+		{
+			return Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].GetModPlayer<MyPlayer>(mod).ZoneSpirit ? 1f : 0f;
+		}
         public override void HitEffect(int hitDirection, double damage)
         {
             for (int i = 0; i < 10; i++) ;

@@ -73,8 +73,7 @@ namespace SpiritMod.NPCs.Spirit
 
 		public override float CanSpawn(NPCSpawnInfo spawnInfo)
 		{
-			//Needs to be adjusted later
-			return 0f;
+			return Main.player[(int)Player.FindClosest(npc.position, npc.width, npc.height)].GetModPlayer<MyPlayer>(mod).ZoneSpirit ? 1f : 0f;
 		}
 
 		public override void FindFrame(int frameHeight)
