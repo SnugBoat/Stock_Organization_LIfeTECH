@@ -26,4 +26,13 @@ public class PestilentPike : ModItem
         item.rare = 3;
         item.shoot = mod.ProjectileType("PestilentPikeProj");
     }
+    
+    public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "PutridPiece", 8);
+            recipe.AddTile(TileID.Anvils);
+            recipe.SetResult(this, 1);
+            recipe.AddRecipe();
+        }
 }}
