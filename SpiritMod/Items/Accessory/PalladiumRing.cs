@@ -12,7 +12,7 @@ namespace SpiritMod.Items.Accessory
 		public override void SetDefaults()
 		{
 			item.name = "Palladium Ring";
-			item.toolTip = "Gives stat bonuses if below 50% hp, but decreases defense by 8";
+			item.toolTip = "Applies life regeneration when an enemy is hit";
 			item.width = 18;
 			item.height = 18;
 			item.value = Item.buyPrice(0, 10, 0, 0);
