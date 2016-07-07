@@ -18,22 +18,22 @@ namespace SpiritMod.Items.Weapon.Bow
             item.ranged = true;
             item.width = 24;
             item.height = 46;
-            item.useTime = 17;
-            item.toolTip = "Arrows turn into putrid essences";
-            item.useAnimation = 17;
+            item.useTime = 18;
+            item.toolTip = "Arrows turn into pestilent arrows";
+            item.useAnimation = 18;
             item.useStyle = 5;
             item.shoot = 3;
             item.useAmmo = 1;
-            item.knockBack = 3;
+            item.knockBack = 1;
             item.value = 1000;
             item.rare = 8;
             item.useSound = 5;
             item.autoReuse = true;
-            item.shootSpeed = 10f;
+            item.shootSpeed = 6f;
         }
             public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
-			Terraria.Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("PestilentSwordProjectile"), damage, knockBack, player.whoAmI, 0f, 0f);
+			Terraria.Projectile.NewProjectile(position.X, position.Y, speedX, speedY, mod.ProjectileType("PestilentArrow"), damage, knockBack, player.whoAmI, 0f, 0f);
             return false;
 
         }
