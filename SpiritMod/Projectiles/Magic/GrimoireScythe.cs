@@ -34,6 +34,14 @@ namespace SpiritMod.Projectiles.Magic
 	
 			return true;
 		}
+		
+					public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        {
+            if (Main.rand.Next(2) == 0)
+            {
+                target.AddBuff(BuffID.CursedInferno, 60, false);
+            }
+        }
 
     }
 }
