@@ -31,7 +31,7 @@ namespace SpiritMod.Items.Weapon.Magic
             item.autoReuse = true; //Whether it automatically uses the item again after its done being used/animated
         }
 
-		  public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+		   public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
         {
            Main.PlaySound(SoundLoader.customSoundType, player.position, mod.GetSoundSlot(SoundType.Custom, "Sounds/Thunder"));
             Vector2 vector82 = -Main.player[Main.myPlayer].Center + Main.MouseWorld;
