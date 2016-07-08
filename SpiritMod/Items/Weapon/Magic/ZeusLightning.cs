@@ -11,14 +11,14 @@ namespace SpiritMod.Items.Weapon.Magic
         public override void SetDefaults()
         {
             item.name = "Zeus's Lightning";
-            item.damage = 1; //The damage
+            item.damage = 44; //The damage
             item.magic = true; //Whether or not it is a magic weapon
             item.width = 54; //Item width
             item.height = 54; //Item height
             item.maxStack = 1; //How many of this item you can stack
             item.toolTip = "'Weild the power of Zeus'"; //The item’s tooltip
-            item.useTime = 75; //How long it takes for the item to be used
-            item.useAnimation = 75; //How long the animation of the item takes
+            item.useTime = 60; //How long it takes for the item to be used
+            item.useAnimation = 60; //How long the animation of the item takes
             Item.staff[item.type] = true;
             item.knockBack = 7f; //How much knockback the item produces
             item.noMelee = true; //Whether the weapon should do melee damage or not
@@ -37,7 +37,7 @@ namespace SpiritMod.Items.Weapon.Magic
             Vector2 vector82 = -Main.player[Main.myPlayer].Center + Main.MouseWorld;
             float ai = Main.rand.Next(100);
             Vector2 vector83 = Vector2.Normalize(vector82) * item.shootSpeed;
-            Projectile.NewProjectile(player.Center.X, player.Center.Y, vector83.X, vector83.Y, type, damage, .49f, player.whoAmI, vector82.ToRotation(), ai);
+            Projectile.NewProjectile(player.Center.X, player.Center.Y, vector83.X, vector83.Y, type, damage, .5f, player.whoAmI, vector82.ToRotation(), ai);
             return false;
         }
     }

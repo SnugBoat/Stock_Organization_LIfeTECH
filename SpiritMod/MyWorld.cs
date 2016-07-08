@@ -48,18 +48,18 @@ namespace SpiritMod
 			int YvalueMid = Yvalue + 160;
 			for (int A = XvalueHigh; A > Xvalue; A--)
 			{
-				for (int B = YvalueHigh; B > Yvalue; B--)
+				for (int B = Yvalue; B < YvalueHigh; B++)
 				{
 						if (Main.tile[A,B].wall == 2)
 						{ 
 							WorldGen.KillWall(A, B);
 							WorldGen.PlaceWall(A, B, mod.WallType("SpiritWall"));
 						}
-				//		if (B < (int)WorldGen.rockLayer - 600 && Main.tile[A,B].wall == 0)
-				//			{ 
-				//			WorldGen.KillWall(A, B);
-				//			WorldGen.PlaceWall(A, B, mod.WallType("SpiritWall"));
-				//		}
+						if (B > (int)WorldGen.rockLayer && Main.tile[A,B].wall == 0)
+							{ 
+							WorldGen.KillWall(A, B);
+							WorldGen.PlaceWall(A, B, mod.WallType("SpiritWall"));
+						}
 						if (Main.tile[A,B].wall == 1)
 						{ 
 							WorldGen.KillWall(A, B);
