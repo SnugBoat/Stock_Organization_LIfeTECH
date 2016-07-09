@@ -18,7 +18,7 @@ namespace SpiritMod.Items.Armor
             item.name = "Pestilent Guard";
             item.width = 34;
             item.height = 30;
-            item.toolTip = "Increased Thrown Damage and Velocity.";
+            item.toolTip = "Increased arrow and bullet damage, and ranged critical strike chance";
             item.value = 10000;
             item.rare = 8;
             item.defense = 20;
