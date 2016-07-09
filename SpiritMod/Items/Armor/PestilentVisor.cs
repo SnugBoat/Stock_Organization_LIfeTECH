@@ -39,5 +39,14 @@ namespace SpiritMod.Items.Armor
             player.rocketDamage += 0.17f;
             player.rangedCrit += 6;
         }
+        
+        		        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "PutridPiece", 8);
+            recipe.AddTile(TileID.Anvils);
+            recipe.SetResult(this, 1);
+            recipe.AddRecipe();
+        }
     }
 }
