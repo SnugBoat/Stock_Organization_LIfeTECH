@@ -35,6 +35,13 @@ namespace SpiritMod.Projectiles.Bullet
             {
                 target.AddBuff(BuffID.CursedInferno, 60, false);
             }
+            			Player player = Main.player[projectile.owner];
+			((MyPlayer)player.GetModPlayer(mod, "MyPlayer")).PutridHits++;
+			if (((MyPlayer)player.GetModPlayer(mod, "MyPlayer")).PutridHits == 4 && ((MyPlayer)player.GetModPlayer(mod, "MyPlayer")).PutridSetbonus == true)
+			{
+			Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 0f, 0f, mod.ProjectileType("CursedFlame"), projectile.damage, 0f, projectile.owner, 0f, 0f);
+			((MyPlayer)player.GetModPlayer(mod, "MyPlayer")).PutridHits = 0;
+			}
         }
     }
 }
