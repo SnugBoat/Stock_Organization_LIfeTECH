@@ -20,6 +20,9 @@ public bool TiteRing = false;
         public int HitNumber;
 public bool SRingOn = true;
         public bool ZoneSpirit = false;
+        		public bool PutridSetbonus = false;
+		public int PutridHits = 0;
+		public bool flametrail = false;
 		
         public override void UpdateBiomes()
         {
@@ -32,6 +35,8 @@ public bool SRingOn = true;
 			hpRegenRing = false;
 			TiteRing = false;
 			SRingOn = false;
+			PutridSetbonus = false;
+			flametrail = false;
         }
 
 		public override void OnHitAnything(float x, float y, Entity victim)
@@ -72,6 +77,10 @@ public bool SRingOn = true;
                 Main.NewText("http://forums.terraria.org/index.php?threads/the-spirit-mod.41395/", 0, 191, 255);
                 loaded = true;
             }
+            			if (flametrail == true && player.velocity.X != 0)
+			{
+			Projectile.NewProjectile(player.position.X, player.position.Y + 40, 0f, 0f, mod.ProjectileType("CursedFlameTrail"), 100, 0f, player.whoAmI, 0f, 0f);
+			}
         }
         
                 public override void UpdateBadLifeRegen()
