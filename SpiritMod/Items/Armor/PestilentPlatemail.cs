@@ -30,5 +30,14 @@ namespace SpiritMod.Items.Armor
             player.rangedCrit += 15;
             player.ammoCost75 = true;
         }
+        
+        		        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "PutridPiece", 16);
+            recipe.AddTile(TileID.Anvils);
+            recipe.SetResult(this, 1);
+            recipe.AddRecipe();
+        }
     }
 }
