@@ -27,6 +27,15 @@ namespace SpiritMod.Items.Armor
         public override void UpdateEquip(Player player)
         {
             player.moveSpeed += 0.15f;
-        }        
+        } 
+        
+        		        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "PutridPiece", 10);
+            recipe.AddTile(TileID.Anvils);
+            recipe.SetResult(this, 1);
+            recipe.AddRecipe();
+        }
     }
 }
