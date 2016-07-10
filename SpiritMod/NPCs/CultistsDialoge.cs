@@ -23,8 +23,8 @@ namespace SpiritMod.NPCs
 		{
 			if (player.GetModPlayer<MyPlayer>(mod).ZoneSpirit)
 			{
-				spawnRate = (int)(spawnRate * 0.2f);
-				maxSpawns = (int)(maxSpawns * 2f);
+				spawnRate = (int)(spawnRate * 0.6f);
+				maxSpawns = (int)(maxSpawns * 1.5f);
 			}
         }
         public override void GetChat(NPC npc, ref string chat)

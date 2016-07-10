@@ -16,6 +16,7 @@ namespace SpiritMod.Projectiles
 
         public override void SetDefaults()
         {
+            ///for reasons, I have to put a comment here.
             projectile.aiStyle = 16;
             projectile.friendly = true;
             projectile.hostile = false;

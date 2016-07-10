@@ -34,6 +34,9 @@ namespace SpiritMod
         
 	public override void PostUpdate() 
 	{
+            if (InvasionHandler.currentInvasion != null)
+                Main.invasionWarn = 3600;
+
             if (NPC.downedMechBoss3 == true)
             {
 			if (spiritBiome == false)
@@ -55,7 +58,7 @@ namespace SpiritMod
 							WorldGen.KillWall(A, B);
 							WorldGen.PlaceWall(A, B, mod.WallType("SpiritWall"));
 						}
-						if (B > (int)WorldGen.rockLayer && Main.tile[A,B].wall == 0)
+						if (B > (int)WorldGen.rockLayer - 50 && Main.tile[A,B].wall == 0)
 							{ 
 							WorldGen.KillWall(A, B);
 							WorldGen.PlaceWall(A, B, mod.WallType("SpiritWall"));

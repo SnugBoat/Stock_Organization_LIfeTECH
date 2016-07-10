@@ -15,7 +15,6 @@ namespace SpiritMod.Projectiles
 
 		public override void SetDefaults()
 		{
-            //comment
 			projectile.name = "Candy Copter";
 			projectile.width = 8;
 			projectile.height = 8;
