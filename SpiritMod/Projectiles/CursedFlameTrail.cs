@@ -26,13 +26,15 @@ namespace SpiritMod.Projectiles
 				projectile.tileCollide = false;
 				if (Main.rand.Next(5) == 0)
 				{
-				Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 74, 0f, 0f);
+				int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 61, 0f, 0f);
+				Main.dust[dust].scale = 3f;
+				Main.dust[dust].noGravity = true;
 				}
 			return false;
 }
 			public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-                target.AddBuff(BuffID.CursedInferno, 120, false);
+                target.AddBuff(mod.BuffType("BlightedFlames"), 60, false);
         }
     }
 }
