@@ -19,7 +19,7 @@ public class PestilentPike : ModItem
         item.noMelee = true;
         item.useAnimation = 27;
         item.useTime = 27;
-        item.shootSpeed = 5f;
+        item.shootSpeed = 9f;
         item.knockBack = 6f;
         item.damage = 77;
         item.value = Item.sellPrice(0, 1, 30, 0);
