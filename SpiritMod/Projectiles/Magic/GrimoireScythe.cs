@@ -31,6 +31,12 @@ namespace SpiritMod.Projectiles.Magic
 			{
 				projectile.velocity *= 1.2f;
 			}
+			            if (Main.rand.Next(5) == 0)
+            		{
+                		int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 61, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);      
+				Main.dust[dust].scale = 3f;
+				Main.dust[dust].noGravity = true;		
+            		}
 	
 			return true;
 		}
@@ -39,7 +45,7 @@ namespace SpiritMod.Projectiles.Magic
         {
             if (Main.rand.Next(2) == 0)
             {
-                target.AddBuff(BuffID.CursedInferno, 60, false);
+                target.AddBuff(mod.BuffType("BlightedFlames"), 60, false);
             }
             			Player player = Main.player[projectile.owner];
 			((MyPlayer)player.GetModPlayer(mod, "MyPlayer")).PutridHits++;
