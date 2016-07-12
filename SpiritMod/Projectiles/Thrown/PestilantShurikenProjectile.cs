@@ -44,7 +44,7 @@ public class PestilantShurikenProjectile : ModProjectile
         {
             if (Main.rand.Next(2) == 0)
             {
-                target.AddBuff(BuffID.CursedInferno, 60, false);
+                target.AddBuff(mod.BuffType("BlightedFlames"), 60, false);
             }
             			Player player = Main.player[projectile.owner];
 			((MyPlayer)player.GetModPlayer(mod, "MyPlayer")).PutridHits++;
