@@ -19,12 +19,19 @@ namespace SpiritMod.Projectiles.Magic
 			projectile.height = 24;
 			projectile.penetrate = -1;
         }
+        		public override void AI()
+		{
+			if (Main.rand.Next(3) == 0)
+			{
+				Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 61, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);
+			}
+		}
 		
 			public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             if (Main.rand.Next(2) == 0)
             {
-                target.AddBuff(BuffID.CursedInferno, 60, false);
+                target.AddBuff(mod.BuffType("BlightedFlames"), 60, false);
             }
             			Player player = Main.player[projectile.owner];
 			((MyPlayer)player.GetModPlayer(mod, "MyPlayer")).PutridHits++;
