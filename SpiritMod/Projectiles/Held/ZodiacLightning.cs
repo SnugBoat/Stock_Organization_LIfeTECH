@@ -7,22 +7,22 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Projectiles.Held
 {
-    public class ZodiacLightning : ModProjectile
-    {
-        public override void SetDefaults()
-        {
-            projectile.melee = true;
-            projectile.name = "Zodiac";
-            projectile.friendly = true;
-            projectile.aiStyle = 27;
+	public class ZodiacLightning : ModProjectile
+	{
+		public override void SetDefaults()
+		{
+			projectile.melee = true;
+			projectile.name = "Zodiac";
+			projectile.friendly = true;
+			projectile.aiStyle = 27;
 			projectile.width = 100;
 			projectile.height = 100;
 			projectile.penetrate = -1;
 			projectile.alpha = 255;
 			projectile.timeLeft = 1;
-        }
-		
-			    public override bool PreAI()
+		}
+
+		public override bool PreAI()
 		{
 			for (int i = 0; i < 50; ++i)
 			{
@@ -32,7 +32,6 @@ namespace SpiritMod.Projectiles.Held
 				Main.dust[dust].scale = 1.5f;
 			}
 			return false;
-}
-
-    }
+		}
+	}
 }

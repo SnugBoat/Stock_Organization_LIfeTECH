@@ -111,5 +111,177 @@ namespace SpiritMod
 			}
 			AchievementsHelper.CurrentlyMining = false;
 		}
+
+		public static float? CollisionDistance(Vector2 start, float width, float height, Vector2 vel, bool ignoreTopCollision = true, bool evenActuated = false)
+		{
+			float xDiv = 16f / vel.X;
+			float yDiv = 16f / vel.Y;
+			if (float.IsInfinity(xDiv) && float.IsInfinity(yDiv))
+			{
+				return null;
+			}
+			bool movX = vel.X >= 0f;
+			bool movY = vel.Y >= 0f;
+
+			Vector2 pos = new Vector2(start.X * (1f/16f), start.Y * (1f/16f));
+			Main.NewText("pos:  ( " + (int)pos.X + " | " + (int)pos.Y + ")");
+			width *= 1f / 16f;
+			if (movX) {
+				pos.X += width;
+				width *= -1f;
+			}
+			height = 1f / 16f;
+			if (movY) {
+				pos.Y += height;
+				height *= -1f;
+			}
+			Vector2 end = pos + vel * (1f/16f);
+			Main.NewText("end:  ( " + (int)end.X + " | " + (int)end.Y + ")");
+			int xStart = Math.Max((int)pos.X, 0);
+			int yStart = Math.Max((int)pos.Y, 0);
+			int xEnd = Math.Min((int)end.X, Main.maxTilesX);
+			int yEnd = Math.Min((int)end.Y, Main.maxTilesY);
+			int cascades = Math.Abs(xEnd - xStart) + Math.Abs(yEnd - yStart);
+
+			float xVel = vel.X * (1f / 16f);
+			float yVel = vel.Y * (1f / 16f);
+			float xNext = movX ? (float)Math.Ceiling(pos.X) : (float)Math.Floor(pos.X);
+			float yNext = movY ? (float)Math.Ceiling(pos.Y) : (float)Math.Floor(pos.Y);
+			float xRate = (xNext - pos.X) * xDiv;
+			float yRate = (yNext - pos.Y) * yDiv;
+			for (int i = cascades; i > 0; i--)
+			{
+				if (yRate > xRate)
+				{ //X is next
+					int x = (int)(movX? xNext : xNext -1);
+					//Skip, if x is out of bounds.
+					if (InvalidTileX(x)) {
+						xNext += movX ? 1f : -1f;
+						xRate = (xNext - pos.X) * xDiv;
+						continue;
+					}
+					float scanStart = (xNext - start.X) * xDiv * yVel + pos.Y;
+					int y = (int)scanStart;
+					int target = (int)(scanStart + height);
+
+					if (movY) {
+						for (; y >= target; y--)
+						{
+							if (InvalidTileY(y))
+							{
+								continue;
+							}
+							Tile tile = Main.tile[x, y];
+							if (tile != null && tile.active() && (evenActuated || !tile.inActive()) && Main.tileSolid[tile.type])
+							{
+								return (xNext - start.X) * xDiv;
+							}
+						}
+					} else
+					{
+						for (; y <= target; y++)
+						{
+							if (InvalidTileY(y))
+							{
+								continue;
+							}
+							Tile tile = Main.tile[x, y];
+							if (tile != null && tile.active() && (evenActuated || !tile.inActive()) && Main.tileSolid[tile.type])
+							{
+								return (xNext - start.X) * xDiv;
+							}
+						}
+					}
+
+					xNext += movX ? 1f : -1f;
+					xRate = (xNext - pos.X) * xDiv;
+				} else
+				{ //Y is next
+					int y = (int)(movY ? yNext : yNext - 1);
+					//Skip, if y is out of bounds.
+					if (InvalidTileY(y))
+					{
+						yNext += movY ? 1f : -1f;
+						yRate = (yNext - pos.Y) * yDiv;
+						continue;
+					}
+					float scanStart = (yNext - start.Y) * yDiv * xVel + pos.X;
+					int x = (int)scanStart;
+					int target = (int)(scanStart + width);
+
+					if (movX)
+					{
+						for (; x >= target; x--)
+						{
+							if (InvalidTileX(x))
+							{
+								continue;
+							}
+							Tile tile = Main.tile[x, y];
+							if (tile != null && tile.active() && (evenActuated || !tile.inActive()) && (Main.tileSolid[tile.type] || movY && Main.tileSolidTop[tile.type]))
+							{
+								return (yNext - start.Y) * yDiv;
+							}
+						}
+					} else
+					{
+						for (; x <= target; x++)
+						{
+							if (InvalidTileX(x))
+							{
+								continue;
+							}
+							Tile tile = Main.tile[x, y];
+							if (tile != null && tile.active() && (evenActuated || !tile.inActive()) && (Main.tileSolid[tile.type] || movY && Main.tileSolidTop[tile.type]))
+							{
+								return (yNext - start.Y) * yDiv;
+							}
+						}
+					}
+
+					yNext += movY ? 1f : -1f;
+					yRate = (yNext - pos.Y) * yDiv;
+				}
+			}
+			
+			return null;
+		}
+
+		public static bool ValidTile(float x, float y)
+		{
+			//Main.NewText("( " +x+ " | " +y+ ") ! " + "( " + Main.maxTilesX * 16f + 16f + " | " + Main.maxTilesY * 16f + 16f + ")");
+			return x >= 0f && x < Main.maxTilesX * 16f + 16f && y >= 0f && y < Main.maxTilesY * 16f + 16f;
+		}
+
+		public static bool ValidTile(int x, int y)
+		{
+			return x >= 0 && x <= Main.maxTilesX && y >= 0 && y <= Main.maxTilesY;
+		}
+
+		public static bool ValidTileX(int x)
+		{
+			return x >= 0 && x <= Main.maxTilesX;
+		}
+
+		public static bool ValidTileY(int y)
+		{
+			return y >= 0 && y <= Main.maxTilesY;
+		}
+
+		public static bool InvalidTile(int x, int y)
+		{
+			return x < 0 || x > Main.maxTilesX || y < 0 || y > Main.maxTilesY;
+		}
+
+		public static bool InvalidTileX(int x)
+		{
+			return x < 0 || x > Main.maxTilesX;
+		}
+
+		public static bool InvalidTileY(int y)
+		{
+			return y < 0 || y > Main.maxTilesY;
+		}
+		
 	}
 }

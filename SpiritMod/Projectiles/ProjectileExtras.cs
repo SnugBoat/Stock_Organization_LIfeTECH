@@ -8,9 +8,117 @@ namespace SpiritMod.Projectiles
 {
 	public static class ProjectileExtras
 	{
+
+		public static void HomingAIVanilla(this ModProjectile modProj, NPC target, float velocity = 4f, float weight = 0.0333f)
+		{
+			Projectile projectile = modProj.projectile;
+			Vector2 pos = new Vector2(projectile.position.X + (float)(projectile.width >> 1), projectile.position.Y + (float)(projectile.height >> 1));
+			Vector2 aim = new Vector2(target.position.X + (float)(target.width >> 1), target.position.Y + (float)(target.height >> 1));
+			float num560 = aim.X - pos.X;
+			float num561 = aim.Y - pos.Y;
+			aim -= pos;
+			aim *= velocity / aim.Length();
+			projectile.velocity *= 1f - weight;
+			projectile.velocity += aim * weight;
+		}
+
+		public static void HomingAI(this ModProjectile modProj, NPC target, float velocity = 4f, float acceleration = 0.1f)
+		{
+			Projectile projectile = modProj.projectile;
+			Vector2 aim = new Vector2(target.position.X + (float)(target.width >> 1), target.position.Y + (float)(target.height >> 1));
+			aim += target.velocity;
+			Vector2 pos = new Vector2(projectile.position.X + (float)(projectile.width >> 1), projectile.position.Y + (float)(projectile.height >> 1));
+			aim -= pos;
+			aim *= velocity / aim.Length();
+			Vector2 diff = aim - projectile.velocity;
+			if (acceleration * acceleration >= diff.LengthSquared())
+			{
+				projectile.velocity = aim;
+			} else
+			{
+				diff *= acceleration / diff.Length();
+				projectile.velocity += diff;
+			}
+		}
+
+		public static NPC FindNearestNPC(Vector2 position, float maxDist, bool ignoreLineOfSight = true, bool ignoreFriendly = true, bool ignoreDontTakeDamage = false, bool ignoreChaseable = false)
+		{
+			NPC nearest = null;
+			float distNearest = maxDist * maxDist;
+			for (int i = 0; i < 200; i++)
+			{
+				NPC npc = Main.npc[i];
+				Vector2 npcCenter = npc.Center;
+				if (npc.active && (ignoreChaseable || npc.chaseable && npc.lifeMax > 5) 
+					&& (ignoreDontTakeDamage || !npc.dontTakeDamage) && (!ignoreFriendly || !npc.friendly) && !npc.immortal) 
+				{
+					float distCurrent = Vector2.DistanceSquared(position, npcCenter);
+					if (distCurrent < distNearest && (ignoreLineOfSight || Collision.CanHitLine(position, 0, 0, npcCenter, 0, 0)))
+					{
+						nearest = npc;
+						distNearest = distCurrent;
+					}
+				}
+			}
+			return nearest;
+		}
+
+		public static NPC FindRandomNPC(Vector2 position, float maxDist, bool ignoreLineOfSight = true, bool ignoreFriendly = true, bool ignoreDontTakeDamage = false, bool ignoreChaseable = false)
+		{
+			NPC[] targets = new NPC[Main.maxNPCs];
+			maxDist *= maxDist;
+			int next = 0;
+			for (int i = 0; i < Main.maxNPCs; i++)
+			{
+				NPC npc = Main.npc[i];
+				Vector2 npcCenter = npc.Center;
+				if (npc.active && (ignoreChaseable || npc.chaseable && npc.lifeMax > 5)
+					&& (ignoreDontTakeDamage || !npc.dontTakeDamage) && (!ignoreFriendly || !npc.friendly) && !npc.immortal)
+				{
+					float distCurrent = Vector2.DistanceSquared(position, npcCenter);
+					if (distCurrent < maxDist && (ignoreLineOfSight || Collision.CanHitLine(position, 0, 0, npcCenter, 0, 0)))
+					{
+						targets[next] = npc;
+						next++;
+					}
+				}
+			}
+			if (next == 0)
+			{
+				return null;
+			}
+			return targets[Main.rand.Next(next)];
+		}
+
+		public static void LookAlongVelocity(this ModProjectile modProj)
+		{
+			Projectile projectile = modProj.projectile;
+			projectile.rotation = (float)Math.Atan2(projectile.velocity.X, -projectile.velocity.Y);
+		}
+
+		public static void LookAt(this ModProjectile modProj, Vector2 target)
+		{
+			Projectile projectile = modProj.projectile;
+			Vector2 delta = target - projectile.position;
+			projectile.rotation = (float)Math.Atan2(delta.X, -delta.Y);
+		}
+
+		public static void Bounce(this ModProjectile modProj, Vector2 oldVelocity, float bouncyness = 1f)
+		{
+			Projectile projectile = modProj.projectile;
+			if (projectile.velocity.X != oldVelocity.X)
+			{
+				projectile.velocity.X = -oldVelocity.X * bouncyness;
+			}
+			if (projectile.velocity.Y != oldVelocity.Y)
+			{
+				projectile.velocity.Y = -oldVelocity.Y * bouncyness;
+			}
+		}
+
 		public static void YoyoAI(int index, float seconds, float length, float acceleration = 14f, float rotationSpeed = 0.45f, ExtraAction action = null, ExtraAction initialize = null)
 		{
-			Terraria.Projectile projectile = Main.projectile[index];
+			Projectile projectile = Main.projectile[index];
 			bool flag = false;
 			if (initialize != null && projectile.localAI[1] == 0f)
 			{

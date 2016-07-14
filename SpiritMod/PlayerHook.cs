@@ -21,15 +21,23 @@ namespace SpiritMod
 		public bool copterFiring = false;
 		public int copterFireFrame = 1000;
 
+		public int beetleStacks = 1;
+
 		public bool bismiteSet = false;
 
 		public override void FrameEffects()
 		{
-			////Supposed to make players legs disappear, but only makes them skin-colored.
-			//if (player.mount.Active && player.mount.Type == CandyCopter._data.Type)
-			//{
-			//	player.legs = CandyCopter._outfit;
-			//}
+			//Hide players wings, etc. when riding the Candy Copter
+			if (player.mount.Active && player.mount.Type == CandyCopter._ref.Type)
+			{
+				//Supposed to make players legs disappear, but only makes them skin-colored.
+				player.legs = CandyCopter._outfit;
+				player.wings = -1;
+				player.back = -1;
+				player.shield = -1;
+				//player.handoff = -1;
+				//player.handon = -1;
+			}
 		}
 
 		public override void PostUpdateRunSpeeds()
@@ -75,6 +83,11 @@ namespace SpiritMod
 		{
 			//Reset all
 			bismiteSet = false;
+
+			if (player.HasBuff(Buffs.BeetleFortitude._ref.Type) < 0)
+			{
+				beetleStacks = 1;
+			}
 
 			copterFireFrame++;
 

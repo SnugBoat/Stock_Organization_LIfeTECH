@@ -72,7 +72,19 @@ namespace SpiritMod
                 }
             }
         }
-    }
+		
+		public override void SetupShop(int type, Chest shop, ref int nextSlot)
+		{
+			if (type == NPCID.WitchDoctor)
+			{
+				if (NPC.downedPlantBoss)
+				{
+					shop.item[nextSlot].SetDefaults(mod.ItemType("TikiArrow"));
+					nextSlot++;
+				}
+			}
+		}
+	}
 }
 	
 
