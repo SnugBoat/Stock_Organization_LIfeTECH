@@ -39,12 +39,9 @@ namespace SpiritMod.NPCs
 				Vector2 pos = npc.Center;
 				for (int i = data.TikiStacks - 1; i >= 0; i--)
 				{
-					TikiData source = data.TikiSources[i];
 					//Spawn Tiki Spirits
-					float vY = Main.rand.Next(-16, 17) * 0.125f;
-					float vX = Main.rand.Next(-16, 17) * 0.125f;
-					vX += vX > 0 ? Math.Abs(vY) : -Math.Abs(vY);
-					Projectile.NewProjectile(pos.X, pos.Y, vX, vY, Projectiles.Arrow.TikiBiter._ref.projectile.type, source.wasSpirit ? source.damage : (int)(source.damage * 0.75f), 0f, source.owner, -1f);
+					TikiData source = data.TikiSources[i];
+					Projectile.NewProjectile(pos.X, pos.Y, 0f, 0f, Projectiles.Arrow.TikiBiter._ref.projectile.type, source.wasSpirit ? source.damage : (int)(source.damage * 0.75f), 0f, source.owner, -1f);
 				}
 			}
 			return true;

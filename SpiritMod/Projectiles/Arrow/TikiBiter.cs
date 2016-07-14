@@ -20,21 +20,19 @@ namespace SpiritMod.Projectiles.Arrow
 			//projectile.alpha = 0;
 			//projectile.friendly = true;
 			projectile.ranged = true;
-			projectile.penetrate = 1;
+			projectile.penetrate = 5;
 			projectile.extraUpdates = 1;
 		}
 
 		public override bool PreAI()
 		{
-			int i = Main.rand.Next(10);
-			if (i < 5)
+			//Initialize
+			if (projectile.ai[1] == 0f)
 			{
-				float offsetX = projectile.velocity.X * 0.2f * (float)i;
-				float offsetY = -(projectile.velocity.Y * 0.2f) * (float)i;
-				int dust = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 2, 0f, 0f, 100);
-				Main.dust[dust].position.X -= offsetX;
-				Main.dust[dust].position.Y -= offsetY;
-				Main.dust[dust].velocity -= projectile.velocity * 0.25f;
+				float vY = Main.rand.Next(-14, 15) * 0.125f;
+				float vX = Main.rand.Next(-14, 15) * 0.125f;
+				vX += vX > 0 ? Math.Abs(vY) : -Math.Abs(vY);
+				projectile.velocity = new Vector2(vX, vY);
 			}
 
 			projectile.ai[1] += 1f;
@@ -73,28 +71,46 @@ namespace SpiritMod.Projectiles.Arrow
 			{
 				Vector2 dir = projectile.velocity;
 				float vel = projectile.velocity.Length();
-				if (vel != 0f && vel < 4f)
+				if (vel != 0f)
 				{
-					dir *= 1 / vel;
-					projectile.velocity += dir * 0.0625f;
+					if (vel < 4f)
+					{
+						dir *= 1 / vel;
+						projectile.velocity += dir * 0.0625f;
+					}
+				} else
+				{
+					//Stops the projectiles from spazzing out
+					projectile.velocity.X += Main.rand.Next(2) == 0 ? 0.1f : -0.1f;
 				}
 			}
 
+			//Create particles
+			int i = Main.rand.Next(10);
+			if (i < 5)
+			{
+				float offsetX = projectile.velocity.X * 0.2f * (float)i;
+				float offsetY = -(projectile.velocity.Y * 0.2f) * (float)i;
+				int dust = Dust.NewDust(new Vector2(projectile.position.X, projectile.position.Y), projectile.width, projectile.height, 2, 0f, 0f, 100);
+				Main.dust[dust].position.X -= offsetX;
+				Main.dust[dust].position.Y -= offsetY;
+				Main.dust[dust].velocity -= projectile.velocity * 0.25f;
+			}
 			return false;
 		}
 
 		public override bool OnTileCollide(Vector2 oldVelocity)
 		{
-			//projectile.penetrate--;
-			//if (projectile.penetrate <= 0)
-			//{
-			//	projectile.Kill();
-			//} else
-			//{
+			projectile.penetrate--;
+			if (projectile.penetrate <= 0)
+			{
+				projectile.Kill();
+			} else
+			{
 				this.Bounce(oldVelocity);
 				projectile.ai[0] = -1f;
-			//	//Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 10);
-			//}
+				//Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 10);
+			}
 			return false;
 		}
 
@@ -105,14 +121,13 @@ namespace SpiritMod.Projectiles.Arrow
 			{
 				//Workaround: OnHitNPC gets called after NPCLoot for some reason.
 				Vector2 pos = target.Center;
-				float vX = Main.rand.Next(-16, 17) * 0.125f;
-				float vY = Main.rand.Next(-16, 17) * 0.125f;
-				Projectile.NewProjectile(pos.X, pos.Y, vX, vY, _ref.projectile.type, projectile.damage, 0f, projectile.owner, -1f);
+				Projectile.NewProjectile(pos.X, pos.Y, 0f, 0f, _ref.projectile.type, projectile.damage, 0f, projectile.owner, -1f);
 			} else
 			{
 				target.AddBuff(Buffs.TikiInfestation._ref.Type, (int)(Buffs.TikiInfestation.duration * 0.5f));
 				modNPC.AddTikiSource(projectile);
 			}
+			projectile.Kill();
 		}
 
 	}
