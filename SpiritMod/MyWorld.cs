@@ -34,6 +34,9 @@ namespace SpiritMod
         
 	public override void PostUpdate() 
 	{
+            if (InvasionHandler.currentInvasion != null)
+                Main.invasionWarn = 3600;
+
             if (NPC.downedMechBoss3 == true)
             {
 			if (spiritBiome == false)
@@ -46,12 +49,17 @@ namespace SpiritMod
 			int YvalueHigh = Yvalue + 600;
 			int XvalueMid = Xvalue + 80;
 			int YvalueMid = Yvalue + 160;
-			for (int A = Xvalue; A < XvalueHigh; A++)
+			for (int A = XvalueHigh; A > Xvalue; A--)
 			{
 				for (int B = Yvalue; B < YvalueHigh; B++)
 				{
 						if (Main.tile[A,B].wall == 2)
 						{ 
+							WorldGen.KillWall(A, B);
+							WorldGen.PlaceWall(A, B, mod.WallType("SpiritWall"));
+						}
+						if (B > (int)WorldGen.rockLayer - 50 && Main.tile[A,B].wall == 0)
+							{ 
 							WorldGen.KillWall(A, B);
 							WorldGen.PlaceWall(A, B, mod.WallType("SpiritWall"));
 						}
@@ -79,6 +87,10 @@ namespace SpiritMod
 						{ 
 							WorldGen.KillWall(A, B);
 							WorldGen.PlaceWall(A, B, mod.WallType("SpiritWall"));
+						}
+						if (Main.rand.Next(30) == 5)
+						{
+						int J = WorldGen.PlaceChest(A, B, (ushort)mod.TileType("SpiritNaturalChest"), false, 0);
 						}
 					if (Main.tile[A,B].active())
 					{

@@ -17,7 +17,7 @@ namespace SpiritMod.Projectiles.Thrown
             projectile.aiStyle = 1;
             projectile.friendly = true;
             projectile.thrown = true;
-            projectile.penetrate = 1;
+            projectile.penetrate = -1;
             projectile.timeLeft = 600;
             aiType = ProjectileID.Bullet;
         }
@@ -27,8 +27,15 @@ namespace SpiritMod.Projectiles.Thrown
         {
             if (Main.rand.Next(2) == 0)
             {
-                target.AddBuff(BuffID.CursedInferno, 60, false);
+                target.AddBuff(mod.BuffType("BlightedFlames"), 60, false);
             }
+            			Player player = Main.player[projectile.owner];
+			((MyPlayer)player.GetModPlayer(mod, "MyPlayer")).PutridHits++;
+			if (((MyPlayer)player.GetModPlayer(mod, "MyPlayer")).PutridHits >= 4 && ((MyPlayer)player.GetModPlayer(mod, "MyPlayer")).PutridSetbonus == true)
+			{
+			Projectile.NewProjectile(projectile.position.X, projectile.position.Y, 0f, 0f, mod.ProjectileType("CursedFlame"), projectile.damage, 0f, projectile.owner, 0f, 0f);
+			((MyPlayer)player.GetModPlayer(mod, "MyPlayer")).PutridHits = 0;
+			}
         }
     }
 }

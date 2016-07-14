@@ -20,17 +20,18 @@ namespace SpiritMod
                 AutoloadSounds = true
             };
         }
-
+        public const string customEventName = "Cultist Raid";
+        public static int customEvent;
         public override void UpdateMusic(ref int music)
         {
             if (Main.myPlayer != -1 && !Main.gameMenu)
             {
             }
-            if (Main.player[Main.myPlayer].active && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && Main.player[Main.myPlayer].position.Y < Main.rockLayer)
+            if (Main.player[Main.myPlayer].active && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && Main.player[Main.myPlayer].position.Y < WorldGen.rockLayer)
             {
                 music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/SpiritOverworld");
             }
-            if (Main.player[Main.myPlayer].active && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && Main.player[Main.myPlayer].position.Y >= Main.rockLayer)
+            if (Main.player[Main.myPlayer].active && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneSpirit && Main.player[Main.myPlayer].position.Y >= WorldGen.rockLayer)
             {
                 music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/SpiritUnderground");
             }
@@ -115,6 +116,31 @@ namespace SpiritMod
 				}
 			}
 		}
+        public override void Load()
+        {
+            InvasionHandler.AddInvasion(out SpiritMod.customEvent, new InvasionInfo(customEventName,
+                "The Cults have besieged your world!", "You have driven off the Cults!",
+            delegate ()
+            {
+                int amountOfPlayers = 0;
+                int maxAmountOfPlayers = 6;
+                for (int i = 0; i < 255; ++i)
+                {
+                    if (Main.player[i].active && Main.player[i].statLifeMax >= 400)
+                    {
+                        amountOfPlayers++;
+                        if (amountOfPlayers == maxAmountOfPlayers)
+                            break;
+                    }
+                }
 
-	}
+                if (amountOfPlayers > 0)
+                {
+                    Main.invasionSize = 120 + (30 * amountOfPlayers);
+                    Main.invasionX = Main.spawnTileX;
+                }
+                return false;
+            }, this.GetTexture("Effects/InvasionIcons/CultInvasion_Icon")));
+        }
+    }
 }
