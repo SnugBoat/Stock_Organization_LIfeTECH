@@ -33,5 +33,11 @@ namespace SpiritMod.NPCs
         {
             for (int i = 0; i < 10; i++) ;
         }
-    }
+
+		public override void NPCLoot()
+		{
+			Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("BismiteCrystal"), Main.rand.Next(3) + 2);
+		}
+
+	}
 }

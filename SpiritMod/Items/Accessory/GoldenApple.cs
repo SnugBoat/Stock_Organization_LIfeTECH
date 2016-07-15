@@ -20,8 +20,8 @@ namespace SpiritMod.Items.Accessory
 
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
-			SPlayer sPlayer = (SPlayer)player.GetModPlayer(mod, "SPlayer");
-			sPlayer.goldenApple = true;
+			float defBoost = (float)(player.statLifeMax2 - player.statLife) / (float)player.statLifeMax2 * 20f;
+			player.statDefense += (int)defBoost;
 		}
 
 		public override void AddRecipes()

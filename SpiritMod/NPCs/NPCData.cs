@@ -7,6 +7,8 @@ namespace SpiritMod.NPCs
 {
 	public class NPCData : NPCInfo
 	{
+		public int fireStacks;
+
 		public bool DoomDestiny = false;
 
 		public int TikiStacks = 0;

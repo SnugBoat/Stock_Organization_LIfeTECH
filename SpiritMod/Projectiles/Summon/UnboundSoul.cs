@@ -30,14 +30,14 @@ namespace SpiritMod.Projectiles.Summon
 
 		public override void CheckActive()
 		{
-			SPlayer sPlayer = (SPlayer)Main.player[base.projectile.owner].GetModPlayer(base.mod, "SPlayer");
-			if (sPlayer.player.dead)
+			PlayerHook modPlayer = Main.player[base.projectile.owner].GetModPlayer< PlayerHook>(base.mod);
+			if (modPlayer.player.dead)
 			{
-				sPlayer.unboundSoulMinion = false;
+				modPlayer.unboundSoulMinion = false;
 			}
-			if (sPlayer.unboundSoulMinion)
+			if (modPlayer.unboundSoulMinion)
 			{
-				base.projectile.timeLeft = 2;
+				projectile.timeLeft = 2;
 			}
 		}
 

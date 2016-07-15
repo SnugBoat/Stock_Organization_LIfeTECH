@@ -23,22 +23,42 @@ namespace SpiritMod
 
 		public int beetleStacks = 1;
 
-		public bool bismiteSet = false;
+		public bool runicSet = false;
+
+		public bool unboundSoulMinion = false;
 
 		public override void FrameEffects()
 		{
-			//Hide players wings, etc. when riding the Candy Copter
-			if (player.mount.Active && player.mount.Type == CandyCopter._ref.Type)
+			//Hide players wings, etc. when mounted
+			if (player.mount.Active)
 			{
-				//Supposed to make players legs disappear, but only makes them skin-colored.
-				player.legs = CandyCopter._outfit;
-				player.wings = -1;
-				player.back = -1;
-				player.shield = -1;
-				//player.handoff = -1;
-				//player.handon = -1;
+				int mount = player.mount.Type;
+				if (mount == CandyCopter._ref.Type)
+				{
+					//Supposed to make players legs disappear, but only makes them skin-colored.
+					player.legs = CandyCopter._outfit;
+					player.wings = -1;
+					player.back = -1;
+					player.shield = -1;
+					//player.handoff = -1;
+					//player.handon = -1;
+				} else if (mount == Drakomire._ref.Type)
+				{
+					player.wings = -1;
+				}
 			}
 		}
+
+		//public override void ModifyDrawLayers(List<PlayerLayer> layers)
+		//{
+		//	for (int i = 0; i < layers.Count; i++)
+		//	{
+		//		if ((this.drakomireMount || this.basiliskMount) && layers[i].Name == "Wings")
+		//		{
+		//			layers[i].visible = false;
+		//		}
+		//	}
+		//}
 
 		public override void PostUpdateRunSpeeds()
 		{
@@ -63,26 +83,11 @@ namespace SpiritMod
 			}
 		}
 
-		//public override void OnHitNPC(Item item, NPC target, int damage, float knockback, bool crit)
-		//{
-		//	if (bismiteSet)
-		//	{
-		//		target.AddBuff(Buffs.Diseased._ref.Type, 3600);
-		//	}
-		//}
-
-		//public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit)
-		//{
-		//	if (bismiteSet)
-		//	{
-		//		target.AddBuff(Buffs.Diseased._ref.Type, 3600);
-		//	}
-		//}
-
-		public override void PreUpdate()
+		public override void ResetEffects()
 		{
 			//Reset all
-			bismiteSet = false;
+			runicSet = false;
+			unboundSoulMinion = false;
 
 			if (player.HasBuff(Buffs.BeetleFortitude._ref.Type) < 0)
 			{

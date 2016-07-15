@@ -17,7 +17,7 @@ namespace SpiritMod.Buffs
 
         public override bool ReApply(NPC npc, int time, int buffIndex)
         {
-            NInfo info = npc.GetModInfo<NInfo>(mod);
+            NPCData info = npc.GetModInfo<NPCData>(mod);
             if (info.fireStacks < 3)
                 info.fireStacks++;
             npc.buffTime[buffIndex] = time;
@@ -26,7 +26,7 @@ namespace SpiritMod.Buffs
 
         public override void Update(NPC npc, ref int buffIndex)
         {
-            NInfo info = npc.GetModInfo<NInfo>(mod);
+			NPCData info = npc.GetModInfo<NPCData>(mod);
             if (info.fireStacks <= 0)
                 info.fireStacks = 1;
         }

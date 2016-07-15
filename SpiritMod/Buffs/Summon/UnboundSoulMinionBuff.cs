@@ -16,12 +16,12 @@ namespace SpiritMod.Buffs.Summon
 
 		public override void Update(Player player, ref int buffIndex)
 		{
-			SPlayer sPlayer = player.GetModPlayer<SPlayer>(mod);
+			PlayerHook modPlayer = player.GetModPlayer<PlayerHook>(mod);
 			if (player.ownedProjectileCounts[mod.ProjectileType("UnboundSoul")] > 0)
 			{
-				sPlayer.unboundSoulMinion = true;
+				modPlayer.unboundSoulMinion = true;
 			}
-			if (!sPlayer.unboundSoulMinion)
+			if (!modPlayer.unboundSoulMinion)
 			{
 				player.DelBuff(buffIndex);
 				buffIndex--;

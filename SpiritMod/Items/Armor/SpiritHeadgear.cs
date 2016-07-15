@@ -31,7 +31,7 @@ namespace SpiritMod.Items.Armor
         public override void UpdateArmorSet(Player player)
         {
             player.setBonus = "Damage taken Reduced by 20% but Decreased Movement Speed";
-            
+            //Code actual effect
         }
 
         public override void UpdateEquip(Player player)
