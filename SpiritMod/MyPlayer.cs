@@ -13,7 +13,8 @@ namespace SpiritMod
 		public Entity LastEnemyHit = null;
 		public bool hpRegenRing = false;
 		public bool TiteRing = false;
-		private bool loaded = false;
+        public bool KingRock = false;
+        private bool loaded = false;
 		private const int saveVersion = 0;
 		public bool minionName = false;
 		public static bool hasProjectile;
@@ -36,8 +37,8 @@ namespace SpiritMod
 			minionName = false;
 			hpRegenRing = false;
 			TiteRing = false;
-			this.infernalSet = false;
-
+            this.infernalSet = false;
+            KingRock = false;
 			this.infernalShield = false;
 			PutridSetbonus = false;
 			flametrail = false;
@@ -55,11 +56,20 @@ namespace SpiritMod
 			{
 				player.AddBuff(58, 120);
 			}
-			LastEnemyHit = victim;
+        LastEnemyHit = victim;
 			base.OnHitAnything(x, y, victim);
 		}
+        public override void OnHitNPCWithProj(Projectile proj, NPC target, int damage, float knockback, bool crit)
+        {
+            MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
+            if (modPlayer.KingRock && Main.rand.Next(5) == 2 && proj.magic)
+            {
+                Projectile.NewProjectile(player.position.X + Main.rand.Next(-350, 350), player.position.Y - 350, 0, 12, mod.ProjectileType("PrismaticBolt"), 15, 0, Main.myPlayer);
+                Projectile.NewProjectile(player.position.X + Main.rand.Next(-350, 350), player.position.Y - 350, 0, 12, mod.ProjectileType("PrismaticBolt"), 15, 0, Main.myPlayer);
+            }
+        }
 
-		public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
+        public override void Hurt(bool pvp, bool quiet, double damage, int hitDirection, bool crit)
 		{
 			if (SRingOn == true)
 			{
