@@ -6,9 +6,10 @@ namespace SpiritMod.NPCs.Town
 {
 	public class LoneTrapper : ModNPC
 	{
-		public override bool Autoload(ref string name, ref string texture)
+		public override bool Autoload(ref string name, ref string texture, ref string[] altTextures)
 		{
 			name = "Lone Trapper";
+			altTextures = new string[] { "SpiritMod/NPCs/Town/LoneTrapper_Alt_1" };
 			return mod.Properties.Autoload;
 		}
 
