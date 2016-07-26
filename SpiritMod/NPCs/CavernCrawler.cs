@@ -27,7 +27,7 @@ namespace SpiritMod.NPCs
 
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.player.ZoneUndergroundDesert;
+            return spawnInfo.player.ZoneUndergroundDesert ? 0.1f : 0f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {
