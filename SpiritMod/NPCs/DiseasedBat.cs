@@ -27,7 +27,11 @@ namespace SpiritMod.NPCs
 
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.spawnTileY > Main.rockLayer ? 0.07f : 0f;
+        	
+            int x = spawnInfo.spawnTileX;
+			int y = spawnInfo.spawnTileY;
+			int tile = (int)Main.tile[x, y].type;
+            return (tile == 1) && spawnInfo.spawnTileY > Main.rockLayer ? 0.1f : 0f;
         }
 
         public override void HitEffect(int hitDirection, double damage)
