@@ -24,10 +24,10 @@ namespace SpiritMod.Projectiles
 			    public override bool PreAI()
 		{
 				projectile.tileCollide = false;
-				if (Main.rand.Next(5) == 0)
+				if (Main.rand.Next(15) == 0)
 				{
 				int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 61, 0f, 0f);
-				Main.dust[dust].scale = 3f;
+				Main.dust[dust].scale = 2f;
 				Main.dust[dust].noGravity = true;
 				}
 			return false;
