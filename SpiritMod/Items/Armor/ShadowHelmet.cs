@@ -49,7 +49,7 @@ namespace SpiritMod.Items.Armor
         }
         public override void ArmorSetShadows(Player player, ref bool longTrail, ref bool smallPulse, ref bool largePulse, ref bool shortTrail)
         {
-            longtrail = true;
+            longTrail = true;
         }
     }
 }
