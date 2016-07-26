@@ -17,7 +17,13 @@ namespace SpiritMod.Buffs
         }
         public override void Update(NPC npc, ref int buffIndex)
         {
-            npc.lifeRegen -= 30;     
+            npc.lifeRegen -= 30;    
+            {            
+                int dust = Dust.NewDust(npc.position, npc.width, npc.height, 226);
+            }
         }
+    }
+}
+        
     }
 }
