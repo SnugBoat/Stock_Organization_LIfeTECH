@@ -13,7 +13,7 @@ namespace SpiritMod.Items.Material
             item.height = 24;
             item.maxStack = 999;
             item.value = 100;
-            Items.toolTip = "It seems to overflow with energy.";
+            item.toolTip = "It seems to overflow with energy.";
             item.rare = 3;
         }
     }
