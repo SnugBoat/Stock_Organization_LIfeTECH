@@ -32,6 +32,7 @@ namespace SpiritMod.Items.Armor
             player.rangedCrit += 8;
         }
     }
+    
     public override void AddRecipes()
     {
         ModRecipe recipe = new ModRecipe(mod);
