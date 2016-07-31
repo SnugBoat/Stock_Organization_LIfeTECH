@@ -53,13 +53,8 @@ namespace SpiritMod
 			{
 				for (int B = Yvalue; B < YvalueHigh; B++)
 				{
-						if (Main.tile[A,B].wall == 2)
+					/*	if (Main.tile[A,B].wall == 2)
 						{ 
-							WorldGen.KillWall(A, B);
-							WorldGen.PlaceWall(A, B, mod.WallType("SpiritWall"));
-						}
-						if (B > (int)WorldGen.rockLayer - 50 && Main.tile[A,B].wall == 0)
-							{ 
 							WorldGen.KillWall(A, B);
 							WorldGen.PlaceWall(A, B, mod.WallType("SpiritWall"));
 						}
@@ -87,7 +82,7 @@ namespace SpiritMod
 						{ 
 							WorldGen.KillWall(A, B);
 							WorldGen.PlaceWall(A, B, mod.WallType("SpiritWall"));
-						}
+						}*/
 						if (Main.rand.Next(30) == 5)
 						{
 						int J = WorldGen.PlaceChest(A, B, (ushort)mod.TileType("SpiritNaturalChest"), false, 0);
@@ -96,15 +91,11 @@ namespace SpiritMod
 					{
 						if (Main.tile[A,B].type == TileID.Dirt)
 						{ 
-							WorldGen.KillWall(A, B);
-							WorldGen.PlaceWall(A, B, mod.WallType("SpiritWall"));
 							WorldGen.KillTile(A, B);
 							WorldGen.PlaceTile(A, B, mod.TileType("SpiritDirt"));
 						}
 						else if (Main.tile[A,B].type == TileID.Stone) // A = x, B = y.
 						{ 
-							WorldGen.KillWall(A, B);
-							WorldGen.PlaceWall(A, B, mod.WallType("SpiritWall"));
 							WorldGen.KillTile(A, B);
 							WorldGen.PlaceTile(A, B, mod.TileType("SpiritStone"));
 						}
@@ -119,8 +110,6 @@ namespace SpiritMod
 						}
 						else if (Main.tile[A,B].type == TileID.Sand)
 						{ 
-							WorldGen.KillWall(A, B + 1);
-							WorldGen.PlaceWall(A, B + 1, mod.WallType("SpiritWall"));
 							WorldGen.KillTile(A, B);
 							WorldGen.PlaceTile(A, B, mod.TileType("Spiritsand"));
 						}
@@ -131,8 +120,6 @@ namespace SpiritMod
 						}
 						else if (Main.tile[A,B].type == 161)
 						{ 
-							WorldGen.KillWall(A, B);
-							WorldGen.PlaceWall(A, B, mod.WallType("SpiritWall"));
 							WorldGen.KillTile(A, B);
 							WorldGen.PlaceTile(A, B, mod.TileType("SpiritIce"));
 						}

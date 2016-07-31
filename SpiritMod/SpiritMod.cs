@@ -17,7 +17,8 @@ namespace SpiritMod
             {
                 Autoload = true,
                 AutoloadGores = true,
-                AutoloadSounds = true
+                AutoloadSounds = true,
+                AutoloadBackgrounds = true
             };
         }
         public const string customEventName = "Cultist Raid";
