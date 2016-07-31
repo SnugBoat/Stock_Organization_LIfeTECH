@@ -44,6 +44,7 @@ namespace SpiritMod.Items.Armor
                 int dust = Dust.NewDust(player.position, player.width, player.height, 172); 
             }
         }
+        
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
