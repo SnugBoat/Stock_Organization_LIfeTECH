@@ -38,5 +38,15 @@ namespace SpiritMod.Items.Weapon
             Main.projectile[projectileFired].hostile = false;
             return false;
         }
+              public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "BlueprintTwins", 1);
+            recipe.AddIngredient(ItemID.HallowedBar, 6);
+            recipe.AddIngredient(ItemID.SoulofSight, 10);
+            recipe.AddTile(TileID.MythrilAnvil);
+            recipe.SetResult(this, 1);
+            recipe.AddRecipe();
+        }
     }
 }
