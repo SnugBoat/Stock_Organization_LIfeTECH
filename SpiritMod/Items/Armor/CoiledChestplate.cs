@@ -32,13 +32,4 @@ namespace SpiritMod.Items.Armor
             player.rangedCrit += 8;
         }
     }
-    
-    public override void AddRecipes()
-    {
-        ModRecipe recipe = new ModRecipe(mod);
-        recipe.AddIngredient(null, "TechDrive", 3);
-        recipe.AddTile(TileID.Anvils);
-        recipe.SetResult(this, 1);
-        recipe.AddRecipe();
-    }
 }
