@@ -36,6 +36,10 @@ namespace SpiritMod
             {
                 music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/SpiritUnderground");
             }
+			if (Main.player[Main.myPlayer].active && Main.player[Main.myPlayer].GetModPlayer<MyPlayer>(this).ZoneVerdant)
+            {
+                music = this.GetSoundSlot(SoundType.Music, "Sounds/Music/VerdantMusic");
+            }
         }
 
 		public override void PostSetupContent()

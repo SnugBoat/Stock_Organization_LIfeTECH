@@ -22,6 +22,7 @@ namespace SpiritMod
 		public int HitNumber;
 		public bool SRingOn = true;
 		public bool ZoneSpirit = false;
+		public bool ZoneVerdant = false;
 		public bool PutridSetbonus = false;
 		public int PutridHits = 0;
 		public bool flametrail = false;
@@ -29,6 +30,7 @@ namespace SpiritMod
 		public override void UpdateBiomes()
 		{
 			ZoneSpirit = (MyWorld.SpiritTiles > 500);
+			ZoneVerdant = (MyWorld.VerdantTiles > 400);
 		}
 
 		public override void ResetEffects()
