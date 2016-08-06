@@ -6,7 +6,7 @@ using Terraria.ID;
 
 namespace SpiritMod.Projectiles.Summon
 {
-	public class UnboundSoul : GenericMinion
+	public class UnboundSoul : Minion
 	{
 
 		public override void SetDefaults()
