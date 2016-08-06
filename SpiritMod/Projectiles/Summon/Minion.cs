@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Projectiles.Summon
 {
-	public abstract class GenericMinion : ModProjectile
+	public abstract class Minion : ModProjectile
 	{
 
 		public override bool PreAI()
