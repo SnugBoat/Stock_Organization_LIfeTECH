@@ -19,5 +19,17 @@ namespace SpiritMod.Projectiles.Returning
             ProjectileID.Sets.TrailingMode[projectile.type] = 0;
             aiType = ProjectileID.WoodenBoomerang;
         }
+		public override bool OnTileCollide(Vector2 oldVelocity)
+		{
+			 int proj = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y + 20, 0, 0, mod.ProjectileType("SolarExplosion"), (int)(projectile.damage), 0, Main.myPlayer);
+			Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
+			return true;
+		}
+		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+		{
+			
+			 int proj2 = Projectile.NewProjectile(projectile.Center.X, projectile.Center.Y + 20, 0, 0, mod.ProjectileType("SolarExplosion"), (int)(projectile.damage), 0, Main.myPlayer);
+			Main.PlaySound(2, (int)projectile.position.X, (int)projectile.position.Y, 14);
+		}
        }
     }

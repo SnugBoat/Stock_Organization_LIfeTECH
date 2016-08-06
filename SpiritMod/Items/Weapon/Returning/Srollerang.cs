@@ -15,13 +15,14 @@ namespace SpiritMod.Items.Weapon.Returning
         {
             item.CloneDefaults(ItemID.WoodenBoomerang);
             item.name = "Srollerang";                      
-            item.damage = 25;                            
+            item.damage = 140;                            
             item.value = 100;
             item.rare = 4;
+			item.shootSpeed = 14;
             item.knockBack = 2;
             item.useStyle = 5;
-            item.useAnimation = 25;
-            item.useTime = 27;
+            item.useAnimation = 30;
+            item.useTime = 30;
             item.shoot = mod.ProjectileType("SrollerangProjectile"); 
  
         }
