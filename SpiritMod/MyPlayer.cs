@@ -13,6 +13,7 @@ namespace SpiritMod
         public Entity LastEnemyHit = null;
 		public bool hpRegenRing = false;
 		public bool TiteRing = false;
+		public bool NebulaPearl = false;
         public bool KingRock = false;
         private bool loaded = false;
 		private const int saveVersion = 0;
@@ -39,6 +40,7 @@ namespace SpiritMod
 		{
 			SRingOn = false;
 			minionName = false;
+			NebulaPearl = false;
 			hpRegenRing = false;
 			TiteRing = false;
             this.infernalSet = false;
@@ -72,6 +74,10 @@ namespace SpiritMod
             {
                 Projectile.NewProjectile(player.position.X + Main.rand.Next(-350, 350), player.position.Y - 350, 0, 12, mod.ProjectileType("PrismaticBolt"), 15, 0, Main.myPlayer);
                 Projectile.NewProjectile(player.position.X + Main.rand.Next(-350, 350), player.position.Y - 350, 0, 12, mod.ProjectileType("PrismaticBolt"), 15, 0, Main.myPlayer);
+            }
+			if (modPlayer.NebulaPearl && Main.rand.Next(8) == 2 && proj.magic)
+            {
+                Item.NewItem((int)target.position.X, (int)target.position.Y, target.width, target.height, 3454);
             }
         }
 

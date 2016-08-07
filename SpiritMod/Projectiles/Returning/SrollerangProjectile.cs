@@ -15,6 +15,8 @@ namespace SpiritMod.Projectiles.Returning
             projectile.CloneDefaults(ProjectileID.WoodenBoomerang);
             projectile.damage = 110;
             projectile.extraUpdates = 1;
+			projectile.width = 46;
+			projectile.height = 46;
             ProjectileID.Sets.TrailCacheLength[projectile.type] = 4;
             ProjectileID.Sets.TrailingMode[projectile.type] = 0;
             aiType = ProjectileID.WoodenBoomerang;
