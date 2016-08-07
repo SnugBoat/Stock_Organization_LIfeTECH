@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace SpiritMod.Items.Weapon.Thrown
 {
-	public class Li : ModItem
+	public class GigZap : ModItem
 	{
 		public override void SetDefaults()
 		{
