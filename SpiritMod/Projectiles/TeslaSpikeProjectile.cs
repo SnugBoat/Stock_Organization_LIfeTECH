@@ -11,27 +11,30 @@ namespace SpiritMod.Projectiles
         public override void SetDefaults()
         {
             projectile.name = "Tesla Spike Projectile";
-            projectile.width = 16;
-            projectile.height = 158;
+            projectile.width = 32;
+            projectile.height = 14;
             projectile.aiStyle = 1;
             projectile.friendly = true;
             projectile.ranged = true;
             projectile.penetrate = -1;
             projectile.tileCollide = false;
             projectile.ignoreWater = true;
-            projectile.timeLeft = 20;
-            projectile.alpha = 255;
-            projectile.light = 0.5f;
-            projectile.extraUpdates = 1;
-            ProjectileID.Sets.TrailCacheLength[projectile.type] = 5;
-            ProjectileID.Sets.TrailingMode[projectile.type] = 0;
-            aiType = ProjectileID.Bullet;
+            aiType = ProjectileID.MartianTurretBolt;
+            Main.projFrames[projectile.type] = 4;
+            projectile.timeLeft = 150;
         }
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             if (Main.rand.Next(0) == 0)
             {
                 target.AddBuff(mod.BuffType("ElectrifiedV2"), 540, true);
+            }
+        }
+        public override void AI()
+        {
+            if (Main.rand.Next(8) == 0)
+            {
+                int dust = Dust.NewDust(projectile.position, projectile.width, projectile.height, 226);
             }
         }
     }
