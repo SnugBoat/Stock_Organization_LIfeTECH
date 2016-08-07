@@ -13,8 +13,8 @@ namespace SpiritMod.Items.Weapon.Gun
             item.width = 52;       
             item.height = 24;      
             item.toolTip = "Electriiiiiiiic";    
-            item.useTime = 2;  
-            item.useAnimation = 2;
+            item.useTime = 19;  
+            item.useAnimation = 100;
             item.useStyle = 5;    
             item.noMelee = true; 
             item.knockBack = 2;
@@ -23,7 +23,7 @@ namespace SpiritMod.Items.Weapon.Gun
             item.useSound = 12;
             item.autoReuse = true;
             item.shoot = mod.ProjectileType("TeslaSpikeProjectile");
-            item.shootSpeed = 16f;
+            item.shootSpeed = 20f;
             item.useAmmo = ProjectileID.None;
         }
     }
