@@ -10,7 +10,7 @@ namespace SpiritMod.Items.Weapon.Gun
             item.name = "Tesla Spike";     
             item.damage = 57;
             item.magic = true;
-            item.mana = 14;
+            item.mana = 32;
             item.width = 52;       
             item.height = 24;      
             item.toolTip = "Electriiiiiiiic";    
