@@ -8,8 +8,9 @@ namespace SpiritMod.Items.Weapon.Gun
         public override void SetDefaults()
         {
             item.name = "Tesla Spike";     
-            item.damage = 57;   
-            item.ranged = true;          
+            item.damage = 57;
+            item.magic = true;
+            item.mana = 14;
             item.width = 52;       
             item.height = 24;      
             item.toolTip = "Electriiiiiiiic";    
