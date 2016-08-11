@@ -10,8 +10,8 @@ namespace SpiritMod.NPCs
         {
             npc.name = "Deadeye Marksman";
             npc.displayName = "Deadeye Marksman";
-            npc.width = 44;
-            npc.height = 52;
+            npc.width = 36;
+            npc.height = 46;
             npc.damage = 22;
             npc.defense = 13;
             npc.lifeMax = 80;
@@ -20,14 +20,14 @@ namespace SpiritMod.NPCs
             npc.value = 60f;
             npc.knockBackResist = .30f;
             npc.aiStyle = 3;
-            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.CultistArcherBlue];
-            aiType = NPCID.CultistArcherBlue;
-            animationType = NPCID.CultistArcherBlue;
+            Main.npcFrameCount[npc.type] = Main.npcFrameCount[NPCID.GoblinArcher];
+            aiType = NPCID.GoblinArcher;
+            animationType = NPCID.GoblinArcher;
         }
 
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.player.ZoneCorrupt && spawnInfo.spawnTileY < Main.rockLayer ? 0.5f : 0f;
+            return spawnInfo.spawnTileY < Main.rockLayer && (Main.bloodMoon) ? 0.08f : 0f;
         }
         public override void HitEffect(int hitDirection, double damage)
         {
