@@ -24,5 +24,14 @@ namespace SpiritMod.Buffs
                 int dust = Dust.NewDust(npc.position, npc.width, npc.height, 5);
             }
         }
+        public override void Update(Player player, ref int buffIndex)
+        {
+            if (player.lifeRegen > 0)
+                player.lifeRegen = 0;
+            player.lifeRegen -= 4;
+            {
+                int dust = Dust.NewDust(player.position, player.width, player.height, 5);
+            }
+        }
     }
 }
