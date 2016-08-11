@@ -31,17 +31,15 @@ namespace SpiritMod.NPCs
             npc.value = 60f;
             npc.knockBackResist = .0f;
             npc.aiStyle = 3;
+			aiType = NPCID.Skeleton;
+			animationType = 415;
             Main.npcFrameCount[npc.type] = 8;
         }
         public override float CanSpawn(NPCSpawnInfo spawnInfo)
         {
             return spawnInfo.spawnTileY < Main.rockLayer && (Main.bloodMoon) ? 0.1f : 0f;
         }
-        public override void HitEffect(int hitDirection, double damage)
-        {
-            for (int i = 0; i < 10; i++) ;
-        }
-        public override void FindFrame(int frameHeight)
+ /*       public override void FindFrame(int frameHeight)
         {
             if (attackCool < 50f)
             {
@@ -51,9 +49,15 @@ namespace SpiritMod.NPCs
             {
                 npc.frame.Y = 0;
             }
-        }
+        }*/
         public override void AI()
         {
+			//npc.spriteDirection = npc.direction;
+		//	npc.ai[0]++;
+		//	if(npc.ai[0] % 8 == 0) {
+		//		npc.frame.Y = (int)(npc.height * npc.frameCounter);
+		//		npc.frameCounter = (npc.frameCounter + 1) % 8;
+		//	}
             attackCool -= 1f;
         }
         public override void OnHitPlayer(Player target, int damage, bool crit)
