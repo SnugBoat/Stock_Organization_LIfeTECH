@@ -118,7 +118,7 @@ namespace SpiritMod
                     yAxis++;
                     xAxis = XTILE;
 
-                for (int i = 0; i < 400; i++)
+                for (int i = 0; i < 450; i++)
                 {
                     xAxis++;
 
@@ -150,7 +150,7 @@ namespace SpiritMod
 											}
 											if (WillGenn < 10)
 											{
-                                                Main.tile[xAxis, yAxis].type = (ushort)mod.TileType("SpiritGrass");
+                                                Main.tile[xAxis, yAxis].type = (ushort)mod.TileType("SpiritDirt");
 											}
                                             }
                                         }
@@ -169,7 +169,7 @@ namespace SpiritMod
 											}
 											if (WillGenn < 10)
 											{
-                                            Main.tile[xAxis, yAxis].type = (ushort)mod.TileType("SpiritGrass");
+                                            Main.tile[xAxis, yAxis].type = (ushort)mod.TileType("SpiritDirt");
 											}
                                         }
 
@@ -315,7 +315,7 @@ namespace SpiritMod
 											}
 											if (WillGenn < 18)
 											{
-                                            Main.tile[xAxis, yAxis].type = (ushort)mod.TileType("SpiritStone");
+                                            Main.tile[xAxis, yAxis].type = (ushort)mod.TileType("SpiritSand");
 											}
                                         }
                                     }
