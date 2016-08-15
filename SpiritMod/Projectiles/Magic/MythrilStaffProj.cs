@@ -80,9 +80,10 @@ namespace SpiritMod.Projectiles.Magic
 			int i = Main.rand.Next(10);
 			if (i < 5)
 			{
-				 int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 83, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);      
-				Main.dust[dust].scale = 1f;
-				Main.dust[dust].noGravity = true;		
+				int dust = Dust.NewDust(projectile.position + projectile.velocity, projectile.width, projectile.height, 83, projectile.velocity.X * 0.5f, projectile.velocity.Y * 0.5f);      
+				Main.dust[dust].scale = 2f;
+				Main.dust[dust].noGravity = true;
+				Main.dust[dust].noLight = true;
 			}
 			return false;
 		}
