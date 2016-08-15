@@ -1,4 +1,5 @@
 using System.IO;
+using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
@@ -11,6 +12,8 @@ namespace SpiritMod
 {
 	public class MyWorld : ModWorld
 	{
+		private int WillGenn = 0;
+				private int Meme;
         public static int SpiritTiles = 0;
 		public static int VerdantTiles = 0;
 
@@ -94,104 +97,289 @@ namespace SpiritMod
 	public override void PostUpdate() 
 	{
             if (InvasionHandler.currentInvasion != null)
+			{
                 Main.invasionWarn = 3600;
+			}
 
             if (NPC.downedMechBoss3 == true)
             {
 			if (spiritBiome == false)
 			{
 			spiritBiome = true;
-			Main.NewText("The ancient spirits have been revived.", Color.Orange.R, Color.Orange.G, Color.Orange.B);
-			int Xvalue = WorldGen.genRand.Next(300, Main.maxTilesX - 600);
-			int Yvalue = (int)Main.worldSurface - 300;
-			int XvalueHigh = Xvalue + 300;
-			int YvalueHigh = Yvalue + 600;
-			int XvalueMid = Xvalue + 80;
-			int YvalueMid = Yvalue + 160;
-			for (int A = XvalueHigh; A > Xvalue; A--)
-			{
-				for (int B = Yvalue; B < YvalueHigh; B++)
-				{
-					/*	if (Main.tile[A,B].wall == 2)
-						{ 
-							WorldGen.KillWall(A, B);
-							WorldGen.PlaceWall(A, B, mod.WallType("SpiritWall"));
-						}
-						if (Main.tile[A,B].wall == 1)
-						{ 
-							WorldGen.KillWall(A, B);
-							WorldGen.PlaceWall(A, B, mod.WallType("SpiritWall"));
-						}
-						if (Main.tile[A,B].wall == 40)
-						{ 
-							WorldGen.KillWall(A, B);
-							WorldGen.PlaceWall(A, B, mod.WallType("SpiritWall"));
-						}
-                        if (Main.tile[A,B].wall >= 48 && Main.tile[A,B].wall <= 65)
-						{ 
-							WorldGen.KillWall(A, B);
-							WorldGen.PlaceWall(A, B, mod.WallType("SpiritWall"));
-						}
-						if (Main.tile[A,B].wall >= 188 && Main.tile[A,B].wall <= 222)
-						{ 
-							WorldGen.KillWall(A, B);
-							WorldGen.PlaceWall(A, B, mod.WallType("SpiritWall"));
-						}
-						if (Main.tile[A,B].wall == 81 || Main.tile[A,B].wall == 3 || Main.tile[A,B].wall == 69 || Main.tile[A,B].wall == 70 || Main.tile[A,B].wall == 71 || Main.tile[A,B].wall == 83 || Main.tile[A,B].wall == 170 || Main.tile[A,B].wall == 171)
-						{ 
-							WorldGen.KillWall(A, B);
-							WorldGen.PlaceWall(A, B, mod.WallType("SpiritWall"));
-						}*/
-						if (Main.rand.Next(30) == 5)
-						{
-						int J = WorldGen.PlaceChest(A, B, (ushort)mod.TileType("SpiritNaturalChest"), false, 0);
-						}
-					if (Main.tile[A,B].active())
-					{
-						if (Main.tile[A,B].type == TileID.Dirt)
-						{ 
-							WorldGen.KillTile(A, B);
-							WorldGen.PlaceTile(A, B, mod.TileType("SpiritDirt"));
-						}
-						else if (Main.tile[A,B].type == TileID.Stone) // A = x, B = y.
-						{ 
-							WorldGen.KillTile(A, B);
-							WorldGen.PlaceTile(A, B, mod.TileType("SpiritStone"));
-						}
-						else if (Main.tile[A,B].type == 5)
-						{ 
-							WorldGen.KillTile(A, B);
-						}
-						else if (Main.tile[A,B].type == 199)
-						{ 
-							WorldGen.KillTile(A, B);
-							WorldGen.PlaceTile(A, B, mod.TileType("SpiritGrass"));
-						}
-						else if (Main.tile[A,B].type == TileID.Sand)
-						{ 
-							WorldGen.KillTile(A, B);
-							WorldGen.PlaceTile(A, B, mod.TileType("Spiritsand"));
-						}
-						else if (Main.tile[A,B].type == TileID.Grass)
-						{ 
-							WorldGen.KillTile(A, B);
-							WorldGen.PlaceTile(A, B, mod.TileType("SpiritGrass"));
-						}
-						else if (Main.tile[A,B].type == 161)
-						{ 
-							WorldGen.KillTile(A, B);
-							WorldGen.PlaceTile(A, B, mod.TileType("SpiritIce"));
-						}
-                        else if (Main.tile[A,B].type == TileID.CorruptGrass)
-						{ 
-							WorldGen.KillTile(A, B);
-							WorldGen.PlaceTile(A, B, mod.TileType("SpiritGrass"));
-						}		
-					}
-				}
-			} 
-		}
-		}
-	}
+			Main.NewText("The Spirits spread through the Land...", Color.Orange.R, Color.Orange.G, Color.Orange.B);
+			Random rand = new Random();
+			int XTILE = WorldGen.genRand.Next(75, Main.maxTilesX - 600);
+            int xAxis = XTILE;
+			int xAxisMid = xAxis + 50;
+			int xAxisEdge = xAxis + 350;
+            int yAxis = 0;
+			for (int y = 0; y < Main.maxTilesY; y++)
+                {
+                    yAxis++;
+                    xAxis = XTILE;
+
+                for (int i = 0; i < 400; i++)
+                {
+                    xAxis++;
+
+
+                        if (Main.tile[xAxis, yAxis] != null)
+                        {
+                            if (Main.tile[xAxis, yAxis].active())
+                            {
+                                int[] TileArray = { 0, 28};
+                                for (int BiomeDirtReplace = 0; BiomeDirtReplace < 2; BiomeDirtReplace++)
+                                {
+                                    if (Main.tile[xAxis, yAxis].type == (ushort)TileArray[BiomeDirtReplace])
+                                    {
+
+                                        if (Main.tile[xAxis, yAxis + 1] == null)
+                                        {
+                                            if (Main.rand.Next(0, 50) == 1)
+                                            {
+												WillGenn = 0;
+											if (xAxis < xAxisMid - 1)
+											{
+												Meme = xAxisMid - xAxis;
+												WillGenn = Main.rand.Next(Meme);
+											}
+											if (xAxis > xAxisEdge + 1)
+											{
+												Meme = xAxis - xAxisEdge;
+												WillGenn = Main.rand.Next(Meme);
+											}
+											if (WillGenn < 10)
+											{
+                                                Main.tile[xAxis, yAxis].type = (ushort)mod.TileType("SpiritGrass");
+											}
+                                            }
+                                        }
+                                        else
+                                        {
+											WillGenn = 0;
+											if (xAxis < xAxisMid - 1)
+											{
+												Meme = xAxisMid - xAxis;
+												WillGenn = Main.rand.Next(Meme);
+											}
+											if (xAxis > xAxisEdge + 1)
+											{
+												Meme = xAxis - xAxisEdge;
+												WillGenn = Main.rand.Next(Meme);
+											}
+											if (WillGenn < 10)
+											{
+                                            Main.tile[xAxis, yAxis].type = (ushort)mod.TileType("SpiritGrass");
+											}
+                                        }
+
+                                        
+                                    }
+                                }
+
+                                int[] TileArray1 = { 2, 23, 109, 199 };
+                                for (int BiomeGrassReplace = 0; BiomeGrassReplace < 4; BiomeGrassReplace++)
+                                {
+                                    if (Main.tile[xAxis, yAxis].type == (ushort)TileArray1[BiomeGrassReplace])
+                                    {
+                                        if (Main.tile[xAxis, yAxis + 1] == null)
+                                        {
+                                            if (rand.Next(0, 50) == 1)
+                                            {
+												WillGenn = 0;
+											if (xAxis < xAxisMid - 1)
+											{
+												
+												Meme = xAxisMid - xAxis;
+												WillGenn = Main.rand.Next(Meme);
+											}
+											if (xAxis > xAxisEdge + 1)
+											{
+												Meme = xAxis - xAxisEdge;
+												WillGenn = Main.rand.Next(Meme);
+											}
+											if (WillGenn < 18)
+											{
+                                                Main.tile[xAxis, yAxis].type = (ushort)mod.TileType("SpiritGrass");
+											}
+                                            }
+                                        }
+                                        else
+                                        {
+											WillGenn = 0;
+											if (xAxis < xAxisMid - 1)
+											{
+												Meme = xAxisMid - xAxis;
+												WillGenn = Main.rand.Next(Meme);
+											}
+											if (xAxis > xAxisEdge + 1)
+											{
+												Meme = xAxis - xAxisEdge;
+												WillGenn = Main.rand.Next(Meme);
+											}
+											if (WillGenn < 18)
+											{
+                                            Main.tile[xAxis, yAxis].type = (ushort)mod.TileType("SpiritGrass");
+											}
+                                        }
+                                    }
+
+                                }
+								 int[] TileArray2 = { 1, 25, 117, 203 };
+                                for (int BiomeStoneReplace = 0; BiomeStoneReplace < 4; BiomeStoneReplace++)
+                                {
+                                    if (Main.tile[xAxis, yAxis].type == (ushort)TileArray2[BiomeStoneReplace])
+                                    {
+                                        if (Main.tile[xAxis, yAxis + 1] == null)
+                                        {
+                                            if (rand.Next(0, 50) == 1)
+                                            {
+												WillGenn = 0;
+											if (xAxis < xAxisMid - 1)
+											{
+												
+												Meme = xAxisMid - xAxis;
+												WillGenn = Main.rand.Next(Meme);
+											}
+											if (xAxis > xAxisEdge + 1)
+											{
+												Meme = xAxis - xAxisEdge;
+												WillGenn = Main.rand.Next(Meme);
+											}
+											if (WillGenn < 18)
+											{
+                                                Main.tile[xAxis, yAxis].type = (ushort)mod.TileType("SpiritStone");
+											}
+                                            }
+                                        }
+                                        else
+                                        {
+											WillGenn = 0;
+											if (xAxis < xAxisMid - 1)
+											{
+												Meme = xAxisMid - xAxis;
+												WillGenn = Main.rand.Next(Meme);
+											}
+											if (xAxis > xAxisEdge + 1)
+											{
+												Meme = xAxis - xAxisEdge;
+												WillGenn = Main.rand.Next(Meme);
+											}
+											if (WillGenn < 18)
+											{
+                                            Main.tile[xAxis, yAxis].type = (ushort)mod.TileType("SpiritStone");
+											}
+                                        }
+                                    }
+
+                                }
+								 int[] TileArray3 = { 53, 116, 112, 234 };
+                                for (int BiomeSandReplace = 0; BiomeSandReplace < 4; BiomeSandReplace++)
+                                {
+                                    if (Main.tile[xAxis, yAxis].type == (ushort)TileArray3[BiomeSandReplace])
+                                    {
+                                        if (Main.tile[xAxis, yAxis + 1] == null)
+                                        {
+                                            if (rand.Next(0, 50) == 1)
+                                            {
+												WillGenn = 0;
+											if (xAxis < xAxisMid - 1)
+											{
+												
+												Meme = xAxisMid - xAxis;
+												WillGenn = Main.rand.Next(Meme);
+											}
+											if (xAxis > xAxisEdge + 1)
+											{
+												Meme = xAxis - xAxisEdge;
+												WillGenn = Main.rand.Next(Meme);
+											}
+											if (WillGenn < 18)
+											{
+                                                Main.tile[xAxis, yAxis].type = (ushort)mod.TileType("SpiritSand");
+											}
+                                            }
+                                        }
+                                        else
+                                        {
+											WillGenn = 0;
+											if (xAxis < xAxisMid - 1)
+											{
+												Meme = xAxisMid - xAxis;
+												WillGenn = Main.rand.Next(Meme);
+											}
+											if (xAxis > xAxisEdge + 1)
+											{
+												Meme = xAxis - xAxisEdge;
+												WillGenn = Main.rand.Next(Meme);
+											}
+											if (WillGenn < 18)
+											{
+                                            Main.tile[xAxis, yAxis].type = (ushort)mod.TileType("SpiritStone");
+											}
+                                        }
+                                    }
+
+                                }
+								 int[] TileArray4 = { 161, 163, 200, 164 };
+                                for (int BiomeIceReplace = 0; BiomeIceReplace < 4; BiomeIceReplace++)
+                                {
+                                    if (Main.tile[xAxis, yAxis].type == (ushort)TileArray4[BiomeIceReplace])
+                                    {
+                                        if (Main.tile[xAxis, yAxis + 1] == null)
+                                        {
+                                            if (rand.Next(0, 50) == 1)
+                                            {
+												WillGenn = 0;
+											if (xAxis < xAxisMid - 1)
+											{
+												
+												Meme = xAxisMid - xAxis;
+												WillGenn = Main.rand.Next(Meme);
+											}
+											if (xAxis > xAxisEdge + 1)
+											{
+												Meme = xAxis - xAxisEdge;
+												WillGenn = Main.rand.Next(Meme);
+											}
+											if (WillGenn < 18)
+											{
+                                                Main.tile[xAxis, yAxis].type = (ushort)mod.TileType("SpiritIce");
+											}
+                                            }
+                                        }
+                                        else
+                                        {
+											WillGenn = 0;
+											if (xAxis < xAxisMid - 1)
+											{
+												Meme = xAxisMid - xAxis;
+												WillGenn = Main.rand.Next(Meme);
+											}
+											if (xAxis > xAxisEdge + 1)
+											{
+												Meme = xAxis - xAxisEdge;
+												WillGenn = Main.rand.Next(Meme);
+											}
+											if (WillGenn < 18)
+											{
+                                            Main.tile[xAxis, yAxis].type = (ushort)mod.TileType("SpiritIce");
+											}
+                                        }
+                                    }
+
+                                }
+                                        
+                            }
+
+                        }
+
+
+                    }
+
+                }
+			}
+			}
+			}
 }
 }
